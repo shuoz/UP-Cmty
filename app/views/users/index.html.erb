@@ -1,0 +1,27 @@
+<table>
+	<tr>
+		<td>User ID</td>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Password</td>
+		<td>School</td>
+		<td>Graduation</td>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+		<% if false %>
+		<td><%= link_to user.name, user_path(user.id) %></td>
+		<% end %>
+		<td><%= user.id %></td>
+		<td><%= user.name %></td>
+		<td><%= user.email %></td>
+		<td><%= user.password %></td>
+		<td><%= user.school %></td>
+		<td><%= user.graduation %></td>
+		<% if false %>
+		<td><%= link_to "Edit User", edit_user_registration_path %></td>
+		<td><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>

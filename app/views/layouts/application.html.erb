@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social Calendar</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class = "navbar">
+		<ul class = "nav">
+			<% if user_signed_in? %>
+			<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+			<% else %>
+			<li><%= link_to "Login", new_user_session_path %></li>
+			<% end %>
+		</ul>
+		<ul class = "nav">
+			<li class = "dropdown"><a class "nav-link" href = "#">Users</a>
+				<ul>
+			 		<li><%= link_to "User Profile", edit_user_registration_path %></li>
+					<li><%= link_to "All Users", root_path %></li>
+			 	</ul>
+			</li>
+			<li class = "dropdown"><a class "nav-link" href = "#">Events</a>
+				<ul>
+					<li><%= link_to "New Event", new_event_path %></li>
+					<li><%= link_to "All Events", events_path %></li>
+				</ul>
+			</li>
+			<li class = "dropdown"><a class "nav-link" href = "#">Comments</a>
+				<ul>
+					<li><%= link_to "New Comment", new_comment_path %></li>
+					<li><%= link_to "All Comments", comments_path %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+<div class = "content">
+	<p class = "notice"><%= notice %></p>
+	<p class = "alert"><%= alert %></p>
+	<%= yield %>
+</div>
+
+</body>
+</html>

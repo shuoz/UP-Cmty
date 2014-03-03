@@ -1,0 +1,28 @@
+<%= form_for(@event) do |f| %>
+	<div class = "field">
+		<p>Title</p>
+		<%= f.text_field :title %>
+	</div>
+	<div class = "field">
+		<p>Location</p>
+		<%= f.text_field :location %>
+	</div>
+	<div class = "field">
+		<p>Date and Time</p>
+		<%= f.date_select :dayandtime %>
+		<%= f.time_select :dayandtime %>
+
+	</div>
+
+	<div class = "field">
+		<p>Maximum Attendees</p>
+		<%= f.text_field :maxpeople %>
+	</div>
+	<div class = "field">
+		<p>User</p>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+	</div>
+	<div class = "actions">
+		<%= f.submit %>
+	</div>
+<% end %>
