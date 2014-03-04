@@ -2,16 +2,22 @@ Project Idea:
 Social Calendar: Many people have blocks of time when they are free to socialize (get lunch, coffee, dinner, drinks, etc), and many people have places they wish to go to with others (museums, concerts, etc) but it is hard to always find friends who are free during the same times. This website would have a monthly calendar where people can sign up for time slots as either Organizers or Participants. Organizers create social events and specify the logistics (where, when, max attendees) and Participants can sign up for social events created by others, based on what fits their schedule. This is a great way to fill in our free times and meet new people.
 
 
-Homework 02/24/2014
+Homework 03/03/2014
 
 Heroku link: http://evening-savannah-5697.herokuapp.com
 Link to GitHub repository: github.com/shuoz/CIS196Project
 
 What I did:
--Added show, edit, delete functionality to all three tables, including views for show and edit and links to show, edit and delete in the index page for each table
--Stored code on my GitHub repository
--Deployed to Heroku
+-Added the devise gem to my app
+-did a migration to change my Events columns from day, month, year into just datetime format
 -Updated README file
+-Stored code on my GitHub repository
 
 Problems I encountered:
--After deploying to Heroku, the delete method was not working. I fixed this by changing the "link_to" command in each of the index.html.erb files to say "button_to"
+-Some user information was not being saved after I added devise. I fixed this by adding some code to the application controller, under "def configure_permitted_parameters"
+-I am having trouble deploying to Heroku. I keep on getting the error message below. I have tried many solutions but none of them work unfortunately.
+""ssh: connect to host gmail.com port 22: No route to host
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.""
