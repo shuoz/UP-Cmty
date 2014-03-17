@@ -4,7 +4,7 @@ Social Calendar: Many people have blocks of time when they are free to socialize
 
 Homework 03/03/2014
 
-Heroku link: http://evening-savannah-5697.herokuapp.com
+Heroku link: http://peaceful-river-1075.herokuapp.com/
 Link to GitHub repository: github.com/shuoz/CIS196Project
 
 What I did:
