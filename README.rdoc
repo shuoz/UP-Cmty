@@ -14,4 +14,4 @@ What I did:
 -Stored code on my GitHub repository
 
 Problems I encountered:
--None
+-Fixed problems pushing to heroku
