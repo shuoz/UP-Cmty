@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module SocialCalendar3
   class Application < Rails::Application
+    config.action_mailer.default_url_options = {:host => "localhost:3000"}
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -20,4 +21,5 @@ module SocialCalendar3
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   end
+
 end
