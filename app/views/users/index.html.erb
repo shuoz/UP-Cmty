@@ -9,11 +9,8 @@
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
-		<% if false %>
-		<td><%= link_to user.name, user_path(user.id) %></td>
-		<% end %>
 		<td><%= user.id %></td>
-		<td><%= user.name %></td>
+		<td><%= link_to user.name, user_show_path(user.id) %></td>
 		<td><%= user.email %></td>
 		<td><%= user.password %></td>
 		<td><%= user.school %></td>

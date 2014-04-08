@@ -21,12 +21,13 @@ class EventsController < ApplicationController
   end
 
   def event_params
-  	params.require(:event).permit(:title, :location, :month, :day, :year, :maxpeople, :user_id)
+  	params.require(:event).permit(:title, :location, :dayandtime, :maxpeople, :user_id)
   end
 
   def index
     if user_signed_in?
       @events = Event.all
+      @events = Event.order(dayandtime: :asc)
     else
       @events = []
     end
@@ -34,6 +35,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(event_id: params[:id])
   end
   
   def edit

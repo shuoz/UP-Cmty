@@ -28,6 +28,7 @@ class CommentsController < ApplicationController
   def index
   	if user_signed_in?
       @comments = Comment.all
+      @comments = Comment.order(updated_at: :asc)
     else
       @comments = []
     end

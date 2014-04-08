@@ -9,3 +9,15 @@
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>
 	<% end %>
 </div>
+
+<% @events.each do |event| %>
+	<% if event.user_id == current_user.id %>
+	<div class="dash-review">
+  		<h2><%= link_to event.title, event_path(event.id) %></h2>
+  		<h5><%= event.user.name %></h5>
+  		<p><%= event.location %></p>
+  		<p><%= event.maxpeople %></p>
+  		<p><%= event.dayandtime %></p>
+	</div>
+	<% end %>
+<% end %>

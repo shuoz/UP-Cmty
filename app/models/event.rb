@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :title, uniqueness: true
 
-  #attr_accessible :name, :start_time
+  #attr_accessible :dayandtime
   #def start_time
   #  event_start_time
   #end

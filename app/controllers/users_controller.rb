@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @events = Event.where(user_id: params[:id])
+    @events = Event.limit(5)
   end
   
   def edit
