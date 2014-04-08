@@ -18,12 +18,12 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
+    @users = User.limit(5)
   end
 
   def show
     @user = User.find(params[:id])
     @events = Event.where(user_id: params[:id])
-    @events = Event.limit(5)
   end
   
   def edit

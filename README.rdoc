@@ -8,11 +8,11 @@ Heroku link: http://peaceful-river-1075.herokuapp.com/
 Link to GitHub repository: github.com/shuoz/CIS196Project
 
 What I did:
--Included Event.where query in users controller (a Condition query)
--Included Event.limit query in users controller (a Limit query)
--Included Comment.where query in events controller (a Condition query)
--Included Event.order query in events controller (an Ordering query)
--Included Comment.order query in comments controller (an Ordering query)
+-Included Event.where query in users controller show method (a Condition query). This returns events with a user_id equal to the user id
+-Included User.limit query in users controller index method (a Limit query). This limits the number of users retrieved
+-Included Comment.where query in events controller show method (a Condition query). This returns comments with a event_id equal to the event id
+-Included Event.order query in events controller index method (an Ordering query). This orders the events by event date
+-Included Comment.order query in comments controller index method (an Ordering query). This order the comments by date of last update
 -Added back links to views/users/index to show each user
 -Allow ability to show events in each user show page and show comments in each events show page
 -Updated README file
