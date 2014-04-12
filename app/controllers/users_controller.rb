@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
+    @user = User.create(user_params)
   	if @user.save
   		redirect_to root_path
   	else
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :gender, :school, :level, :graduation)
+  	params.require(:user).permit(:name, :email, :password, :gender, :school, :level, :graduation, :avatar)
   end
 
   def index

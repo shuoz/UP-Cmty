@@ -5,6 +5,16 @@ GIT
     letter_opener (1.2.0)
       launchy (~> 2.2)
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 41da3a3c4c139964a9877c77220f94200d73c87a
+  specs:
+    paperclip (4.1.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,6 +47,10 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -136,6 +150,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   letter_opener!
+  paperclip!
   pg
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

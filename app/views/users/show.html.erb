@@ -1,4 +1,7 @@
 <div>
+	<%= image_tag @user.avatar.url %>
+	<%= image_tag @user.avatar.url(:medium) %>
+	<%= image_tag @user.avatar.url(:thumb) %>
 	<h2><%= @user.name %></h2>
 	<p><%= @user.email %></p>
 	<p><%= @user.gender %></p>

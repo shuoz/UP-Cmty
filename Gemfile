@@ -15,6 +15,8 @@ group :production do
 	gem 'pg'
 end
 
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 #gem 'twitter-bootstrap-calendar'
 
 #gem "watu_table_builder", :require => "table_builder"
