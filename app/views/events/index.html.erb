@@ -1,3 +1,6 @@
+<%= link_to "New Event", new_event_path %>
+<div id='calendar'></div>
+
 <table>
 	<tr>
 		<td>Event ID</td>
@@ -23,6 +26,7 @@
 	<% end %>
 </table>
 
+
 <% if false %>
 
 <div id = "calendar">
@@ -33,11 +37,9 @@
   <% end %>
 </div>
 
-
 <%= calendar @events, {:prev_text=>"prev", :next_text=>"next"} do |event| %>
   <div><%= link_to event.title, event_path(event.id) %></div>
 <% end %>
-
 
 <% bootstrap_calendar month do |date| %>
 	<% link_to date.day, new_plan_event_path(:event => {:activity_at => date.beginning_of_day + 12.hours}) %>
