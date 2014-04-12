@@ -15,11 +15,26 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div><%= f.label :gender %><br />
+  <%= f.select :gender, [['Male','Male'],['Female','Female']] %></div>
+
   <div><%= f.label :school %><br />
-  <%= f.text_field :school %></div>
+  <%= f.select :school, [['Annenberg','Annenberg'],
+                        ['Arts & Sciences','Arts & Sciences'],
+                        ['Dental','Dental'],
+                        ['Design','Design'],
+                        ['Education','Education'],
+                        ['Engineering','Engineering'],
+                        ['Law','Law'],
+                        ['Medicine','Medicine'],
+                        ['Nursing','Nursing'],
+                        ['Wharton','Wharton']] %></div>
+
+  <div><%= f.label :level %><br />
+  <%= f.select :level, [['Undergraduate','Undergraduate'],['Graduate','Graduate']] %></div>
 
   <div><%= f.label :graduation %><br />
-  <%= f.text_field :graduation %></div>
+  <%= f.select :graduation, (2010..2030) %></div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

@@ -1,5 +1,4 @@
-<%= link_to "New Event", new_event_path %>
-<div id='calendar'></div>
+<div id = "calendar"></div>
 
 <table>
 	<tr>
@@ -20,8 +19,10 @@
 		<td><%= event.dayandtimeend %></td>
 		<td><%= event.maxpeople %></td>
 		<td><%= event.user.name %></td>
-		<td><%= link_to "Edit Event", edit_event_path(event.id) %></td>
-		<td><%= button_to "Delete Event", event, confirm: "Are you sure you want to delete?", method: :delete %></td>
+		<% if event.user_id == current_user.id %>
+			<td><%= link_to "Edit Event", edit_event_path(event.id) %></td>
+			<td><%= button_to "Delete Event", event, confirm: "Are you sure you want to delete?", method: :delete %></td>
+		<% end %>
 	</tr>
 	<% end %>
 </table>

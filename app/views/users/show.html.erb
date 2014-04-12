@@ -1,8 +1,9 @@
 <div>
 	<h2><%= @user.name %></h2>
 	<p><%= @user.email %></p>
-	<p><%= @user.password %></p>
+	<p><%= @user.gender %></p>
 	<p><%= @user.school %></p>
+	<p><%= @user.level %></p>
 	<p><%= @user.graduation %></p>
 	<% if false %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>

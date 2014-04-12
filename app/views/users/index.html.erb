@@ -3,8 +3,9 @@
 		<td>User ID</td>
 		<td>Name</td>
 		<td>Email</td>
-		<td>Password</td>
+		<td>Gender</td>
 		<td>School</td>
+		<td>Level</td>
 		<td>Graduation</td>
 	</tr>
 	<% @users.each do |user| %>
@@ -12,9 +13,11 @@
 		<td><%= user.id %></td>
 		<td><%= link_to user.name, user_show_path(user.id) %></td>
 		<td><%= user.email %></td>
-		<td><%= user.password %></td>
+		<td><%= user.gender %></td>
 		<td><%= user.school %></td>
+		<td><%= user.level %></td>
 		<td><%= user.graduation %></td>
+		
 		<% if false %>
 		<td><%= link_to "Edit User", edit_user_registration_path %></td>
 		<td><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></td>

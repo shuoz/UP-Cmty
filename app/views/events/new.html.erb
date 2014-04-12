@@ -9,11 +9,11 @@
 	</div>
 	<div class = "field">
 		<p>Start Time</p>
-		<%= f.datetime_select :dayandtime %>
+		<%= f.datetime_select :dayandtime, :ampm => true, :minute_step => 15 %>
 	</div>
 	<div class = "field">
 		<p>End Time</p>
-		<%= f.datetime_select :dayandtimeend %>
+		<%= f.datetime_select :dayandtimeend, :ampm => true, :minute_step => 15 %>
 	</div>
 	<div class = "field">
 		<p>Maximum Attendees</p>

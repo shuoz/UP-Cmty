@@ -9,21 +9,32 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div><%= f.label :gender %><br />
+  <%= f.select :gender, [['Male','Male'],['Female','Female']] %></div>
+
   <div><%= f.label :school %><br />
-  <%= f.text_field :school %></div>
+  <%= f.select :school, [['Annenberg','Annenberg'],
+                        ['Arts & Sciences','Arts & Sciences'],
+                        ['Dental','Dental'],
+                        ['Design','Design'],
+                        ['Education','Education'],
+                        ['Engineering','Engineering'],
+                        ['Law','Law'],
+                        ['Medicine','Medicine'],
+                        ['Nursing','Nursing'],
+                        ['Wharton','Wharton']] %></div>
+
+  <div><%= f.label :level %><br />
+  <%= f.select :level, [['Undergraduate','Undergraduate'],['Graduate','Graduate']] %></div>
 
   <div><%= f.label :graduation %><br />
-  <%= f.text_field :graduation %></div>
+  <%= f.select :graduation, (2010..2030) %></div>
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>

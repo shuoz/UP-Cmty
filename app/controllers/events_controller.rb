@@ -111,7 +111,7 @@ class EventsController < ApplicationController
 
   # NEW SECTION
     respond_to do |format|
-      format.html { redirect_to events_path }
+      format.html { redirect_to events_path, :notice => 'Event was successfully deleted.' }
       format.json { head :no_content }
     end
 

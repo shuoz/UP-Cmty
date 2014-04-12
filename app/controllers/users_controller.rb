@@ -13,12 +13,12 @@ class UsersController < ApplicationController
   end
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :school, :graduation)
+  	params.require(:user).permit(:name, :email, :password, :gender, :school, :level, :graduation)
   end
 
   def index
   	@users = User.all
-    @users = User.limit(5)
+    @users = User.order(name: :asc)
   end
 
   def show
