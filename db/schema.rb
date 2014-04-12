@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303044353) do
+ActiveRecord::Schema.define(version: 20140411230120) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140303044353) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "dayandtime"
+    t.datetime "dayandtimeend"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"

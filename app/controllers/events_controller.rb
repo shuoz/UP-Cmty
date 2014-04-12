@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-  	params.require(:event).permit(:title, :location, :dayandtime, :maxpeople, :user_id)
+  	params.require(:event).permit(:title, :location, :dayandtime, :dayandtimeend, :maxpeople, :user_id)
   end
 
   def index

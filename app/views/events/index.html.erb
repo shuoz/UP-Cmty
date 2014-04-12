@@ -3,7 +3,8 @@
 		<td>Event ID</td>
 		<td>Title</td>
 		<td>Location</td>
-		<td>Date and Time</td>
+		<td>Start Time</td>
+		<td>End Time</td>
 		<td>Maximum Attendees</td>
 		<td>User</td>
 	</tr>
@@ -13,6 +14,7 @@
 		<td><%= link_to event.title, event_path(event.id) %></td>
 		<td><%= event.location %></td>
 		<td><%= event.dayandtime %></td>
+		<td><%= event.dayandtimeend %></td>
 		<td><%= event.maxpeople %></td>
 		<td><%= event.user.name %></td>
 		<td><%= link_to "Edit Event", edit_event_path(event.id) %></td>

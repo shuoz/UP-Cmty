@@ -6,6 +6,6 @@ class Event < ActiveRecord::Base
 
   #attr_accessible :dayandtime
   #def start_time
-  #  event_start_time
+  #	dayandtime
   #end
 end

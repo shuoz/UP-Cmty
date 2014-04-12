@@ -10,7 +10,8 @@
  *
  *= require_self
  *= require_tree .
- *= require twitter-bootstrap-calendar
+ *= require fullcalendar
+ *= require fullcalendar.print
  */
 
 body {

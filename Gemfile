@@ -15,11 +15,13 @@ group :production do
 	gem 'pg'
 end
 
-gem 'twitter-bootstrap-calendar'
+#gem 'twitter-bootstrap-calendar'
 
-gem "watu_table_builder", :require => "table_builder"
+#gem "watu_table_builder", :require => "table_builder"
 
-#gem "simple_calendar", "~> 0.1.9"
+#gem "simple_calendar", "~> 0.1.10"
+
+gem 'fullcalendar-rails'
 
 #gem 'protected_attributes'
 
