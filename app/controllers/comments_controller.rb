@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       redirect_to root_path
     else
       if @comment.save
-        Notifications.new_comment(@comment).deliver
+        #Notifications.new_comment(@comment).deliver
   		  redirect_to comments_path
   	  else
   		  render 'new'

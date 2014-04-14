@@ -25,32 +25,17 @@
 		<% end %>
 	</tr>
 	<% end %>
+	<tr>
+		<td>Event</td>
+		<td>Participant</td>
+	</tr>
+		<% @participants.each do |participant| %>
+		<tr>
+			<td><%= participant.event.title %></td>
+			<td><%= participant.user.name %></td>
+			<% if participant.user_id == current_user.id %>
+			<td><%= button_to "Don't Attend", participant, confirm: "you sure you want to unattend this event?", method: :delete %></td>
+			<% end %>
+		</tr>
+		<% end %>
 </table>
-
-
-<% if false %>
-
-<div id = "calendar">
-  <% calendar_for @events do |calendar| %>
-    <% calendar.day(:day_method => :dayandtime) do |date, events| %>
-      <%= date.day %>
-    <% end %>
-  <% end %>
-</div>
-
-<%= calendar @events, {:prev_text=>"prev", :next_text=>"next"} do |event| %>
-  <div><%= link_to event.title, event_path(event.id) %></div>
-<% end %>
-
-<% bootstrap_calendar month do |date| %>
-	<% link_to date.day, new_plan_event_path(:event => {:activity_at => date.beginning_of_day + 12.hours}) %>
-	<% if @events_by_date[date] %>
-	<% ul.event_summary %>
-	<% @events_by_date[date].each do |event| %>
-	<% li style=event_style(event) %>
-   	<% link_to "#{event.title}: #{event.activity_at.to_s(:time_only)}", menu_plan_event_path(event), :remote => true, :style => event_link_style(event) %>
-	<% end %>
-<% end %>
-<% end %>
-
-<% end %>

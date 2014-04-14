@@ -4,7 +4,8 @@ SocialCalendar3::Application.routes.draw do
   get 'users/show/:id' => 'users#show', as: 'user_show'
   #get 'users/all' => 'users#index', as: 'user'
 
-  resource :calendar, :only => [:show]
+  resources :calendar, :only => [:show]
+  resources :participants, :only => [:create, :destroy]
 
   devise_for :users
   resources :events

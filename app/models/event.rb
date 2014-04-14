@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
+  has_many :participants, :dependent => :destroy
   validates :title, presence: true
   validates :title, uniqueness: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412044730) do
+ActiveRecord::Schema.define(version: 20140414023318) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20140412044730) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "participants", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
+  end
+
+  add_index "participants", ["event_id"], name: "index_participants_on_event_id"
+  add_index "participants", ["user_id"], name: "index_participants_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

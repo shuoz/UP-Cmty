@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :participants, :dependent => :destroy
   validates :name, presence: true
   #validates :email, inclusion: { :in => %w(.upenn.edu), :message => "please use a .upenn.edu email" }
   validates :school, presence: true

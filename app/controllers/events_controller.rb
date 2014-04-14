@@ -55,6 +55,7 @@ class EventsController < ApplicationController
     else
       @events = []
     end
+    @participants = Participant.all
   # NEW SECTION
     respond_to do |format|
       format.html
@@ -66,6 +67,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(event_id: params[:id])
+    @participant = Participant.new
+    @participants = Participant.where(event_id: params[:id])
   # NEW SECTION
     respond_to do |format|
       format.html

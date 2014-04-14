@@ -5,10 +5,39 @@
 	<p><%= @event.dayandtimeend %></p>
 	<p><%= @event.maxpeople %></p>
 	<% if @event.user_id == current_user.id %>
-		<td><%= button_to "edit", edit_event_path(@event.id), method: :get %></td>
-		<td><%= button_to "destroy", @event, confirm: "you sure you want to do delete this event?", method: :delete %></td>
+		<td><%= button_to "Edit", edit_event_path(@event.id), method: :get %></td>
+		<td><%= button_to "Destroy", @event, confirm: "you sure you want to do delete this event?", method: :delete %></td>
 	<%end %>
 </div>
+
+<% if @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).empty? %>
+	<% if @event.user_id == current_user.id %>
+		<td>You are the host!</td>
+		<p></p>
+	<% else %>
+		<td>
+		<%= form_for(@participant) do |f| %>
+			<div class="field">
+				<%= f.hidden_field :user_id, :value => current_user.id %>
+			</div>
+			<div class="field">
+				<%= f.hidden_field :event_id, :value => @event.id %>
+			</div>
+			<div class="actions">
+				<%= f.submit "Attend" %>
+			</div>
+		<% end %>
+		</td>
+	<% end %>
+<% else %>
+	<td><%= button_to "Don't Attend", @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!, confirm: "you sure you want to unattend this event?", method: :delete %></td>
+	</td>
+<% end %>
+
+<% @participants.each do |participant| %>
+	<td><%= participant.user.name %></td>
+	<p></p>
+<% end %>
 
 <%= form_for(@comment) do |f| %>
 	<div class="field">
@@ -21,8 +50,10 @@
 		<%= f.hidden_field :event_id, :value => @event.id %>
 	</div>
 	<div class="actions">
-		<%= f.submit%>
+		<%= f.submit %>
 	</div>
+
+	<% if false %>
 	<div class="error-msg">
 		<% if @comment.errors.any? %>
 		<ul>
@@ -32,6 +63,7 @@
 		</ul>
 		<% end %>
 	</div>
+	<% end %>
 <% end %> 
 
 <% @comments.each do |comment| %>
@@ -39,8 +71,8 @@
 		<td><%= comment.content %></td>
 		<td><%= comment.user.name %></td>
 		<% if comment.user_id == current_user.id || @event.user_id == current_user.id %>
-			<td><%= button_to "edit", edit_comment_path(comment.id), method: :get %></td>
-			<td><%= button_to "destroy", comment, confirm: "you sure you want to do delete this comment?", method: :delete %></td>
+			<td><%= button_to "Edit", edit_comment_path(comment.id), method: :get %></td>
+			<td><%= button_to "Destroy", comment, confirm: "you sure you want to do delete this comment?", method: :delete %></td>
 		<% end %>
 		<p></p>
 	</tr>
