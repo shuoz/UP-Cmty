@@ -2,19 +2,14 @@ Project Idea:
 Social Calendar: Many people have blocks of time when they are free to socialize (get lunch, coffee, dinner, drinks, etc), and many people have places they wish to go to with others (museums, concerts, etc) but it is hard to always find friends who are free during the same times. This website would have a monthly calendar where people can sign up for time slots as either Organizers or Participants. Organizers create social events and specify the logistics (where, when, max attendees) and Participants can sign up for social events created by others, based on what fits their schedule. This is a great way to fill in our free times and meet new people.
 
 
-Homework 04/08/2014
+Homework 04/21/2014
 
 Heroku link: http://peaceful-river-1075.herokuapp.com/
 Link to GitHub repository: github.com/shuoz/CIS196Project
 
 What I did:
--Included Event.where query in users controller show method (a Condition query). This returns events with a user_id equal to the user id
--Included User.limit query in users controller index method (a Limit query). This limits the number of users retrieved
--Included Comment.where query in events controller show method (a Condition query). This returns comments with a event_id equal to the event id
--Included Event.order query in events controller index method (an Ordering query). This orders the events by event date
--Included Comment.order query in comments controller index method (an Ordering query). This order the comments by date of last update
--Added back links to views/users/index to show each user
--Allow ability to show events in each user show page and show comments in each events show page
+-Used JavaScript, jQuery to make the content section of the application homepage turn gray when someone's mouse hovers over that element
+-Used the hover method, taking the mouseenter and mouseleave methods to have the content section turn gray when the mouse enters the element and turning back to white when mouse leaves the element
 -Updated README file
 -Stored code on my GitHub repository
 
