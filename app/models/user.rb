@@ -14,9 +14,16 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }  
   validates :school, presence: true
   validates :graduation, presence: true
+  validates :tagline, length: {maximum: 150}
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
+  #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+  #  :url =>  "/app/assets/images/:style/':avatar_file_name.png'",
+    #:default_url => ActionController::Base.helpers.asset_path('missing_:style.png'),
+  #  :path => ":root_path/public/assets/'missing_:style.png'"
   #validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates_attachment :avatar, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] }
-  has_attached_file :asset, styles: {thumb: "100x100#"}
+  #validates_attachment :avatar, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] }
+  #validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+  #do_not_validate_attachment_file_type :avatar
+  #has_attached_file :asset, styles: {thumb: "100x100#"}
 end

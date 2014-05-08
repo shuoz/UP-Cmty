@@ -15,7 +15,8 @@ group :production do
 	gem 'pg'
 end
 
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+#gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'filepicker-rails'
 
 #gem 'twitter-bootstrap-calendar'
 

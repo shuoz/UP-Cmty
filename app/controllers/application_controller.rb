@@ -6,11 +6,26 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def search
+    case params[:type]
+      when "title"
+        @events = Event.where("title LIKE ?", "%" + params[:search] + "%")
+        @participants = Participant.all
+        render 'events/index'
+      when "name"
+        @users = User.where("name LIKE ?", "%" + params[:search] + "%")
+        @participants = Participant.all
+        render 'users/index'
+      else
+        render 'none'
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :avatar) }
-  	devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :avatar) }
+  	devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :filepicker_url, :tagline) }
+  	devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :filepicker_url, :tagline) }
   end
 
 end

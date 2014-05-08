@@ -15,11 +15,3 @@
 //= require turbolinks
 //= require_tree .
 //= require fullcalendar
-
-$(function(){
-	$('.content').hover(function(){
-		$('.content').css("background-color", "gray");},
-  		function(){
-  		$('.content').css("background-color", "white");
-	});
-});

@@ -4,6 +4,10 @@
 		<%= f.text_field :title %>
 	</div>
 	<div class = "field">
+		<p>Category</p>
+		<%= f.select :category, [['Meal','Meal'], ['Drinks', 'Drinks'], ['Coffee', 'Coffee'], ['Outdoor', 'Outdoor'], ['Sporting', 'Sporting'], ['Other', 'Other']] %>
+	</div>
+	<div class = "field">
 		<p>Location</p>
 		<%= f.text_field :location %>
 	</div>
@@ -17,7 +21,7 @@
 	</div>
 	<div class = "field">
 		<p>Maximum Attendees</p>
-		<%= f.text_field :maxpeople %>
+		<%= f.select :maxpeople, (4..8) %>
 	</div>
 	<div class = "field">
 		<p>User</p>

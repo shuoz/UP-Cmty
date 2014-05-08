@@ -1,13 +1,20 @@
+<% if @user.filepicker_url == "" %>
+<%= "no user photo" %>
+<% else %>
+<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+<% if false %>
+<%= filepicker_save_button "Save", @user.filepicker_url, "image/jpg" %>
+<% end %>
+<% end %>
+
 <div>
-	<%= image_tag @user.avatar.url %>
-	<%= image_tag @user.avatar.url(:medium) %>
-	<%= image_tag @user.avatar.url(:thumb) %>
 	<h2><%= @user.name %></h2>
-	<p><%= @user.email %></p>
-	<p><%= @user.gender %></p>
-	<p><%= @user.school %></p>
-	<p><%= @user.level %></p>
-	<p><%= @user.graduation %></p>
+	<p><%= "Tagline: " %><%= @user.tagline %></p>
+	<p><%= "Email: " %><%= @user.email %></p>
+	<p><%= "Gender: " %><%= @user.gender %></p>
+	<p><%= "School: " %><%= @user.school %></p>
+	<p><%= "Level: " %><%= @user.level %></p>
+	<p><%= "Graduation: " %><%= @user.graduation %></p>
 	<% if false %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>

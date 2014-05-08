@@ -15,20 +15,20 @@ class Event < ActiveRecord::Base
     {
       :id => self.id,
       :title => self.title,
+      :category => self.category,
       :location => self.location,
       :maxpeople => self.maxpeople,
-      :start => self.dayandtime, #.rfc822,
-      :end => self.dayandtimeend, #.rfc822,
-      #:allDay => self.all_day,
+      :start => dayandtime, #.rfc822,
+      :end => dayandtimeend, #.rfc822,
+      :allDay => false,
       :recurring => false,
       :url => Rails.application.routes.url_helpers.event_path(id),
-      #:color => "red"
+      :color => "blue"
     }
   end
 
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
-    #Time.at(date_time.to_i).to_formatted_s(:db)
   end
 
   #attr_accessible :dayandtime

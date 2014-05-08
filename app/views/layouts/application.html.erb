@@ -4,6 +4,7 @@
   <title>Social Calendar</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -33,6 +34,14 @@
 					<li><%= link_to "New Comment", new_comment_path %></li>
 					<li><%= link_to "All Comments", comments_path %></li>
 				</ul>
+			</li>
+			<li><%= link_to "About", about_path %></li>
+			<li>
+				<%= form_tag search_path, method: :get do %>
+					<%= text_field_tag :search %>
+					<%= select_tag(:type, options_for_select([['event', 'title'], ['user', 'name']])) %>
+					<%= submit_tag "Search" %>
+				<% end %>
 			</li>
 		</ul>
 	</div>

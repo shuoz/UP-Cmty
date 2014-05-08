@@ -2,6 +2,8 @@ SocialCalendar3::Application.routes.draw do
   #match 'users/:id' => 'users#destroy', :via => :delete , :as => :destroy_user
   #match 'users/:id' => 'users#show', :via => :get
   get 'users/show/:id' => 'users#show', as: 'user_show'
+  get 'about', to: 'about#show'
+
   #get 'users/all' => 'users#index', as: 'user'
 
   resources :calendar, :only => [:show]
@@ -16,6 +18,8 @@ SocialCalendar3::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'users#index'
+
+  get 'search', to: 'application#search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

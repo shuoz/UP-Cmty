@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414023318) do
+ActiveRecord::Schema.define(version: 20140507141836) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140414023318) do
     t.datetime "updated_at"
     t.datetime "dayandtime"
     t.datetime "dayandtimeend"
+    t.string   "category"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
@@ -66,10 +67,8 @@ ActiveRecord::Schema.define(version: 20140414023318) do
     t.string   "last_sign_in_ip"
     t.string   "gender"
     t.string   "level"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "filepicker_url"
+    t.string   "tagline"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

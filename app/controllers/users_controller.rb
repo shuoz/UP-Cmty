@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :gender, :school, :level, :graduation, :avatar)
+  	params.require(:user).permit(:name, :email, :password, :gender, :school, :level, :graduation, :filepicker_url, :tagline)
   end
 
   def index
