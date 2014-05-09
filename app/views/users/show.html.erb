@@ -1,4 +1,4 @@
-<% if @user.filepicker_url == "" %>
+<% if @user.filepicker_url.empty? %>
 <%= "no user photo" %>
 <% else %>
 <%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
