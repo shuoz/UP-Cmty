@@ -9,12 +9,12 @@
 
 <div>
 	<h2><%= @user.name %></h2>
-	<p><div class = "field"><%= "Tagline: " %></div><%= @user.tagline %>
-	<p><div class = "field"><%= "Email: " %></div><%= @user.email %></p>
-	<p><div class = "field"><%= "Gender: " %></div><%= @user.gender %></p>
-	<p><div class = "field"><%= "School: " %></div><%= @user.school %></p>
-	<p><div class = "field"><%= "Level: " %></div><%= @user.level %></p>
-	<p><div class = "field"><%= "Graduation: " %></div><%= @user.graduation %></p>
+	<p><div class = "field">Tagline: </div><div class = "column1"><%= @user.tagline %></div>
+	<p><div class = "field"><%= "Email: " %></div><div class = "column2"><%= @user.email %></p></div>
+	<p><div class = "field"><%= "Gender: " %></div><div class = "column3"><%= @user.gender %></p></div>
+	<p><div class = "field"><%= "School: " %></div><div class = "column4"><%= @user.school %></p></div>
+	<p><div class = "field"><%= "Level: " %></div><div class = "column5"><%= @user.level %></p></div>
+	<p><div class = "field"><%= "Graduation: " %></div><div class = "column6"><%= @user.graduation %></p></div>
 	<% if false %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>

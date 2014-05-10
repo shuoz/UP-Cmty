@@ -5,8 +5,18 @@ GitHub repository: github.com/shuoz/CIS196Project
 
 Social Calendar: Many people have blocks of time when they are free to socialize (get lunch, coffee, dinner, drinks, etc), and many people have places they wish to go to with others (museums, concerts, etc) but it is hard to always find friends who are free during the same times.
 
-Functionality: Users can create a profile introducing themselves. There is a calendar showing all the upcoming events that have been created. Besides being able to create, edit, join, and comment on events, Users can also browse through existing Users, Events, and Comments.
+Functionality: Users can create a profile to introduce themselves. There is a calendar showing all the upcoming events that have been created. Besides being able to create, edit, join, and comment on events, Users can also browse through existing Users, Events, and Comments.
 
+Database Structure/Resources:
+Users, Events, Comments can CRUD /  each has its Controller, Model, and Views / each has several validations
+
+Event belongs to User, Comment belongs to Event & User, Participant belongs to Event & User
+
+Scope:
+Application controller: search method uses the .where query
+Comments controller: index method uses the .order query
+Events controller: show method uses the .where query
+Users controller: show method uses the .where query
 
 Gems Used:
 fullcalendar: creates a calendar view that populates with all of the existing events
@@ -26,9 +36,10 @@ https://addons.heroku.com/sendgrid
 
 
 JavaScript/jQuery:
-Located in assets/javascripts folder
-What it doesn: makes the content section of the application homepage change color when someone's mouse hovers over each element
+Located in assets/javascripts/users.js
+What it does: Makes the content section of the application homepage change color when someone's mouse hovers over each element. Also makes the elements on the show view of users change color when someone's mouse hovers over.
 
 Problems I encountered:
--heroku CSS not showing up
--filepicker wasn't showing picture
+-The CSS styling was not showing up after I pushed to heroku. I changed "config.assets.compile" to "true" in the config/production.rb file, and it seemed to fix the issue
+-filepicker wasn't properly saving the picture. I fixed this by ensuring that "filepicker_url" was listed within the "configure_permitted_parameters" in the application controller
+-Please note: sometimes certain pages need to be refreshed for the calendar view and filepicker view to work
