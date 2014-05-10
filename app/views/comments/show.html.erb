@@ -1,6 +1,6 @@
 <div>
 	<h2><%= @comment.content %></h2>
-	<p><%= @comment.updated_at %></p>
-	<p><%= @comment.user.name %></p>
-	<p><%= @comment.event.title %></p>
+	<p><div class = "field">Time: </div><%= @comment.updated_at %></p>
+	<p><div class = "field">User: </div><%= @comment.user.name %></p>
+	<p><div class = "field">Event: </div><%= @comment.event.title %></p>
 </div>

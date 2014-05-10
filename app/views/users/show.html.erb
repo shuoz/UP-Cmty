@@ -1,4 +1,4 @@
-<% if @user.filepicker_url.empty? %>
+<% if @user.filepicker_url.blank? %>
 <%= "no user photo" %>
 <% else %>
 <%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
@@ -9,12 +9,12 @@
 
 <div>
 	<h2><%= @user.name %></h2>
-	<p><%= "Tagline: " %><%= @user.tagline %></p>
-	<p><%= "Email: " %><%= @user.email %></p>
-	<p><%= "Gender: " %><%= @user.gender %></p>
-	<p><%= "School: " %><%= @user.school %></p>
-	<p><%= "Level: " %><%= @user.level %></p>
-	<p><%= "Graduation: " %><%= @user.graduation %></p>
+	<p><div class = "field"><%= "Tagline: " %></div><%= @user.tagline %>
+	<p><div class = "field"><%= "Email: " %></div><%= @user.email %></p>
+	<p><div class = "field"><%= "Gender: " %></div><%= @user.gender %></p>
+	<p><div class = "field"><%= "School: " %></div><%= @user.school %></p>
+	<p><div class = "field"><%= "Level: " %></div><%= @user.level %></p>
+	<p><div class = "field"><%= "Graduation: " %></div><%= @user.graduation %></p>
 	<% if false %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>

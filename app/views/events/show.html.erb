@@ -2,12 +2,12 @@
 
 <div>
 	<h2><%= @event.title %></h2>
-	<p><%= "Category: " %><%= @event.category %></p>
-	<p><%= "Location: " %><%= @event.location %></p>
-	<p><%= "Start Time: " %><%= @event.dayandtime %></p>
-	<p><%= "End Time: " %><%= @event.dayandtimeend %></p>
-	<p><%= "Max Attendees: " %><%= @event.maxpeople %></p>
-	<p><%= "Creator: " %><%= @event.user.name %></p>
+	<p><div class = "field"><%= "Category: " %></div><%= @event.category %></p>
+	<p><div class = "field"><%= "Location: " %></div><%= @event.location %></p>
+	<p><div class = "field"><%= "Start Time: " %></div><%= @event.dayandtime %></p>
+	<p><div class = "field"><%= "End Time: " %></div><%= @event.dayandtimeend %></p>
+	<p><div class = "field"><%= "Max Attendees: " %></div><%= @event.maxpeople %></p>
+	<p><div class = "field"><%= "Creator: " %></div><%= @event.user.name %></p>
 	<% if @event.user_id == current_user.id %>
 		<td><%= button_to "Edit", edit_event_path(@event.id), method: :get %></td>
 		<td><%= button_to "Destroy", @event, confirm: "you sure you want to do delete this event?", method: :delete %></td>

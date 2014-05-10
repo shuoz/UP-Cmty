@@ -1,30 +1,30 @@
 <%= form_for(@event) do |f| %>
 	<div class = "field">
-		<p>Title</p>
+		<p>Title: </p>
 		<%= f.text_field :title %>
 	</div>
 	<div class = "field">
-		<p>Category</p>
+		<p>Category: </p>
 		<%= f.select :category, [['Meal','Meal'], ['Drinks', 'Drinks'], ['Coffee', 'Coffee'], ['Outdoor', 'Outdoor'], ['Sporting', 'Sporting'], ['Other', 'Other']] %>
 	</div>
 	<div class = "field">
-		<p>Location</p>
+		<p>Location: </p>
 		<%= f.text_field :location %>
 	</div>
 	<div class = "field">
-		<p>Start Time</p>
+		<p>Start Time: </p>
 		<%= f.datetime_select :dayandtime, :ampm => true, :minute_step => 15 %>
 	</div>
 	<div class = "field">
-		<p>End Time</p>
+		<p>End Time: </p>
 		<%= f.datetime_select :dayandtimeend, :ampm => true, :minute_step => 15 %>
 	</div>
 	<div class = "field">
-		<p>Maximum Attendees</p>
+		<p>Maximum Attendees: </p>
 		<%= f.select :maxpeople, (4..8) %>
 	</div>
 	<div class = "field">
-		<p>User</p>
+		<p></p>
 		<%= f.hidden_field :user_id, :value => current_user.id %>
 	</div>
 	<div class = "actions">
