@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env)
 module SocialCalendar3
   class Application < Rails::Application
     config.action_mailer.default_url_options = {:host => "localhost:3000"}
-    config.filepicker_rails.api_key = 'AKcTV4u3TE6OYjhMzeNNnz'
+    config.filepicker_rails.api_key = 'ACzBiZZbjRBslWAljmG9gz'
     config.filepicker_rails.secret_key = 'YGBBH3GM7VF63CRXUVHZKQS23U'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

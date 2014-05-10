@@ -1,17 +1,34 @@
-Project Idea:
-Social Calendar: Many people have blocks of time when they are free to socialize (get lunch, coffee, dinner, drinks, etc), and many people have places they wish to go to with others (museums, concerts, etc) but it is hard to always find friends who are free during the same times. This website would have a monthly calendar where people can sign up for time slots as either Organizers or Participants. Organizers create social events and specify the logistics (where, when, max attendees) and Participants can sign up for social events created by others, based on what fits their schedule. This is a great way to fill in our free times and meet new people.
-
-
-Homework 04/21/2014
+Final Project Submission 5/9/2014
 
 Heroku link: http://peaceful-river-1075.herokuapp.com/
-Link to GitHub repository: github.com/shuoz/CIS196Project
+GitHub repository: github.com/shuoz/CIS196Project
 
-What I did:
--Used JavaScript, jQuery to make the content section of the application homepage turn gray when someone's mouse hovers over that element
--Used the hover method, taking the mouseenter and mouseleave methods to have the content section turn gray when the mouse enters the element and turning back to white when mouse leaves the element
--Updated README file
--Stored code on my GitHub repository
+Social Calendar: Many people have blocks of time when they are free to socialize (get lunch, coffee, dinner, drinks, etc), and many people have places they wish to go to with others (museums, concerts, etc) but it is hard to always find friends who are free during the same times.
+
+Functionality: Users can create a profile introducing themselves. There is a calendar showing all the upcoming events that have been created. Besides being able to create, edit, join, and comment on events, Users can also browse through existing Users, Events, and Comments.
+
+
+Gems Used:
+fullcalendar: creates a calendar view that populates with all of the existing events
+https://github.com/bokmann/fullcalendar-rails
+https://github.com/bokmann/fullcalendar_assets
+
+devise: full-featured authentication solution which handles all of the controller logic and form views
+https://github.com/plataformatec/devise
+
+filepicker: allows for connecting, storing, and processing files
+https://github.com/Ink/filepicker-rails
+
+
+Addons Used:
+Sendgrid: cloud-based email infrastructure and delivery service
+https://addons.heroku.com/sendgrid
+
+
+JavaScript/jQuery:
+Located in assets/javascripts folder
+What it doesn: makes the content section of the application homepage change color when someone's mouse hovers over each element
 
 Problems I encountered:
--None
+-heroku CSS not showing up
+-filepicker wasn't showing picture
