@@ -18,8 +18,8 @@ class Event < ActiveRecord::Base
       :category => self.category,
       :location => self.location,
       :maxpeople => self.maxpeople,
-      :start => dayandtime, #.rfc822,
-      :end => dayandtimeend, #.rfc822,
+      :start => dayandtime,
+      :end => dayandtimeend,
       :allDay => false,
       :recurring => false,
       :url => Rails.application.routes.url_helpers.event_path(id),
@@ -28,11 +28,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.format_date(date_time)
-    Time.at(date_time.to_i).to_formatted_s(:db)
+    Time.at(date_time.to_i).to_formatted_s(:long)
   end
 
-  #attr_accessible :dayandtime
-  #def start_time
-  #	dayandtime
-  #end
 end

@@ -13,4 +13,9 @@ class Notifications < ActionMailer::Base
 
     mail to: comment.event.user.email
   end
+
+#  def contact
+#    @message
+#    mail to: "shuoz@wharton.upenn.edu"
+#  end
 end

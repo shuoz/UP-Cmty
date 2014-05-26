@@ -39,7 +39,7 @@
 			<li>
 				<%= form_tag search_path, method: :get do %>
 					<%= text_field_tag :search %>
-					<%= select_tag(:type, options_for_select([['event', 'title'], ['user', 'name']])) %>
+					<%= select_tag(:type, options_for_select([['Event Title', 'title'], ['Event Category', 'category'], ['User Name', 'name']])) %>
 					<%= submit_tag "Search" %>
 				<% end %>
 			</li>

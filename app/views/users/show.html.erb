@@ -1,5 +1,5 @@
 <% if @user.filepicker_url.blank? %>
-<%= "no user photo" %>
+<%= @user.name %><%= " is camera shy!" %>
 <% else %>
 <%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
 <% if false %>

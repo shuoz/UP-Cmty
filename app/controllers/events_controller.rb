@@ -5,7 +5,6 @@ class EventsController < ApplicationController
     else
       redirect_to new_user_session_path
     end
-  # NEW SECTION
     respond_to do |format|
       format.html
       format.json { render :json => @events }
@@ -13,8 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-  	@event = Event.new(event_params)
-  # NEW SECTION    
+  	@event = Event.new(event_params)  
     respond_to do |format|
       if @event.user_id != current_user.id
         redirect_to root_path
@@ -45,10 +43,8 @@ class EventsController < ApplicationController
   end
 
   def index
-  # NEW SECTION
     @events = Event.scoped
     @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
-  # END NEW SECTION
     if user_signed_in?
       @events = Event.all
       @events = Event.order(dayandtime: :asc)
@@ -56,7 +52,6 @@ class EventsController < ApplicationController
       @events = []
     end
     @participants = Participant.all
-  # NEW SECTION
     respond_to do |format|
       format.html
       format.json { render :json => @events }
@@ -69,7 +64,6 @@ class EventsController < ApplicationController
     @comments = Comment.where(event_id: params[:id])
     @participant = Participant.new
     @participants = Participant.where(event_id: params[:id])
-  # NEW SECTION
     respond_to do |format|
       format.html
       format.json { render :json => @event }
@@ -82,7 +76,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-  # NEW SECTION
     respond_to do |format|
       if @event.user_id != current_user.id
         format.html { render :action => "edit" }
@@ -112,7 +105,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-  # NEW SECTION
     respond_to do |format|
       format.html { redirect_to events_path, :notice => 'Event was successfully deleted.' }
       format.json { head :no_content }
