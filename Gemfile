@@ -26,6 +26,8 @@ gem 'filepicker-rails'
 
 gem 'fullcalendar-rails'
 
+gem 'sprockets_better_errors'
+
 #gem 'protected_attributes'
 
 # Use SCSS for stylesheets
