@@ -1,33 +1,36 @@
-<% if @user.filepicker_url.blank? %>
-<%= @user.name %><%= " is camera shy!" %>
-<% else %>
-<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
-<% if false %>
-<%= filepicker_save_button "Save", @user.filepicker_url, "image/jpg" %>
-<% end %>
-<% end %>
+<div class = "photo">
+	<% if @user.filepicker_url.blank? %>
+	<%= @user.firstname %><%= " is camera shy!" %>
+	<% else %>
+	<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+	<% if false %>
+	<%= filepicker_save_button "Save", @user.filepicker_url, "image/jpg" %>
+	<% end %>
+	<% end %>
+</div>
 
-<div>
-	<h2><%= @user.name %></h2>
-	<p><div class = "field">Tagline: </div><div class = "column1"><%= @user.tagline %></div>
-	<p><div class = "field"><%= "Email: " %></div><div class = "column2"><%= @user.email %></p></div>
-	<p><div class = "field"><%= "Gender: " %></div><div class = "column3"><%= @user.gender %></p></div>
-	<p><div class = "field"><%= "School: " %></div><div class = "column4"><%= @user.school %></p></div>
-	<p><div class = "field"><%= "Level: " %></div><div class = "column5"><%= @user.level %></p></div>
-	<p><div class = "field"><%= "Graduation: " %></div><div class = "column6"><%= @user.graduation %></p></div>
+<div class = "section1">
+	<h2><%= @user.firstname %>&nbsp;<%= @user.lastname %></h2>
+	<p><div class = "field">Tagline: </div><%= @user.tagline %></p>
+	<p><div class = "field">Email: </div><%= @user.email %></p>
+	<p><div class = "field">Gender: </div><%= @user.gender %></p>
+	<p><div class = "field">School: </div><%= @user.school %></p>
+	<p><div class = "field">Level: </div><%= @user.level %></p>
+	<p><div class = "field">Graduation: </div><%= @user.graduation %></p>
 	<% if false %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>
 	<% end %>
 </div>
 
-<% @events.each do |event| %>
-	<div class="dash-review">
-  		<h2><%= link_to event.title, event_path(event.id) %></h2>
-  		<h5><%= event.user.name %></h5>
-  		<p><%= event.location %></p>
-  		<p><%= event.maxpeople %></p>
-  		<p><%= event.dayandtime %></p>
-  		<p><%= event.dayandtimeend %></p>
-	</div>
-<% end %>
+<div class = "section2">
+	<div class = "field">Events <%= @user.firstname %> is hosting: </div>
+	<% @events.each do |event| %>
+		<%= link_to event.title, event_path(event.id) %><br/>
+	<% end %>
+	<p></p>
+	<div class = "field">Events <%= @user.firstname %> is attending: </div>
+	<% @participants.each do |participant| %>
+		<%= link_to participant.event.title, event_path(participant.event.id) %><br/>
+	<% end %>
+</div>

@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :authenticate_user!, :except => [:index, :showabout]
-
-  #before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :update_sanitized_params, if: :devise_controller?
 
   def search
     case params[:type]
@@ -16,8 +15,12 @@ class ApplicationController < ActionController::Base
         @events = Event.where("category LIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
         render 'events/index'
-      when "name"
-        @users = User.where("name LIKE ?", "%" + params[:search] + "%")
+      when "firstname"
+        @users = User.where("firstname LIKE ?", "%" + params[:search] + "%")
+        @participants = Participant.all
+        render 'users/index'
+      when "lastname"
+        @users = User.where("lastname LIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
         render 'users/index'
       else
@@ -27,9 +30,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :filepicker_url, :tagline) }
-  	devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :filepicker_url, :tagline) }
+  def update_sanitized_params
+  	devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:firstname, :lastname, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :filepicker_url, :tagline) }
+  	devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:firstname, :lastname, :email, :password, :password_confirmation, :current_password, :gender, :school, :level, :graduation, :filepicker_url, :tagline) }
   end
 
 end

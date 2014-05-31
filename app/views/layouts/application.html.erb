@@ -8,43 +8,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class = "navbar">
-		<ul class = "nav">
-			<li class = "dropdown"><a href = "#">Users</a>
-				<ul>
-			 		<li><%= link_to "User Profile", edit_user_registration_path %></li>
-					<li><%= link_to "All Users", root_path %></li>
-			 	</ul>
-			</li>
-			<li class = "dropdown"><a href = "#">Events</a>
-				<ul>
-					<li><%= link_to "New Event", new_event_path %></li>
-					<li><%= link_to "All Events", calendars_path %></li>
-				</ul>
-			</li>
-			<li class = "dropdown"><a href = "#">Comments</a>
-				<ul>
-					<li><%= link_to "New Comment", new_comment_path %></li>
-					<li><%= link_to "All Comments", comments_path %></li>
-				</ul>
-			</li>
-			<li><%= link_to "About", about_path %></li>
-			<% if user_signed_in? %>
-				<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-			<% else %>
-				<li><%= link_to "Login", new_user_session_path %></li>
+	<ul class = "nav">
+		<li class = "dropdown"><a href = "#">Users</a>
+			<ul>
+		 		<li><%= link_to "User Profile", edit_user_registration_path %></li>
+				<li><%= link_to "All Users", root_path %></li>
+		 	</ul>
+		</li>
+		<li class = "dropdown"><a href = "#">Events</a>
+			<ul>
+				<li><%= link_to "New Event", new_event_path %></li>
+				<li><%= link_to "Event Calendar", calendars_path %></li>
+				<li><%= link_to "Event List", events_path %></li>
+			</ul>
+		</li>
+		<li class = "dropdown"><a href = "#">Comments</a>
+			<ul>
+				<div id = "comment">
+				<li><%= link_to "New Comment", new_comment_path %></li>
+				<li><%= link_to "All Comments", comments_path %></li>
+				</div>
+			</ul>
+		</li>
+		<li><%= link_to "About", about_path %></li>
+		<% if user_signed_in? %>
+			<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+		<% else %>
+			<li><%= link_to "Login", new_user_session_path %></li>
+		<% end %>
+		<li>
+			<%= form_tag search_path, method: :get do %>
+				<%= text_field_tag :search %>
+				<%= select_tag(:type, options_for_select([['Event Title', 'title'], ['Event Category', 'category'], ['First Name', 'firstname' ], ['Last Name', 'lastname' ]])) %>
+				<%= submit_tag "Search" %>
 			<% end %>
-			<li>
-				<%= form_tag search_path, method: :get do %>
-					<%= text_field_tag :search %>
-					<%= select_tag(:type, options_for_select([['Event Title', 'title'], ['Event Category', 'category'], ['User Name', 'name']])) %>
-					<%= submit_tag "Search" %>
-				<% end %>
-			</li>
-		</ul>
-			<li id = "pennlogo">Penn Logo</li>
-		</ul>
-	</div>
+		</li>
+	</ul>
+		<li id = "pennlogo">Penn Logo</li>
+	</ul>
 
 <div class = "content">
 	<p class = "notice"><%= notice %></p>
@@ -52,5 +53,6 @@
 	<%= yield %>
 </div>
 
+<br />
 </body>
 </html>

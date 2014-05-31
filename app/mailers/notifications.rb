@@ -9,7 +9,7 @@ class Notifications < ActionMailer::Base
   def new_comment(comment)
     @greeting = "Hey there"
     @id = comment.id
-    @commenter = comment.user.name
+    @commenter = comment.user.firstname
 
     mail to: comment.event.user.email
   end

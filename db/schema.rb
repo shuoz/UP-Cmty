@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507141836) do
+ActiveRecord::Schema.define(version: 20140531194709) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20140507141836) do
   add_index "participants", ["user_id"], name: "index_participants_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "name"
     t.string   "password"
     t.string   "school"
     t.integer  "graduation"
@@ -69,6 +68,8 @@ ActiveRecord::Schema.define(version: 20140507141836) do
     t.string   "level"
     t.string   "filepicker_url"
     t.string   "tagline"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

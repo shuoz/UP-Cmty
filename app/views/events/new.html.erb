@@ -1,33 +1,40 @@
+<h2>Edit Event</h2>
+
 <%= form_for(@event) do |f| %>
 	<div class = "field">
-		<p>Title: </p>
+		Title:<br />
 		<%= f.text_field :title %>
 	</div>
+	<p></p>
 	<div class = "field">
-		<p>Category: </p>
+		Category:<br />
 		<%= f.select :category, [['Meal','Meal'], ['Drinks/Coffee', 'Drinks/Coffee'], ['Local Event', 'Local Event'], ['Sports', 'Sports'], ['Other', 'Other']] %>
 	</div>
+	<p></p>
 	<div class = "field">
-		<p>Location: </p>
+		Location:<br />
 		<%= f.text_field :location %>
 	</div>
+	<p></p>
 	<div class = "field">
-		<p>Start Time: </p>
+		Start Time:<br />
 		<%= f.datetime_select :dayandtime, :ampm => true, :minute_step => 15 %>
 	</div>
+	<p></p>
 	<div class = "field">
-		<p>End Time: </p>
+		End Time:<br />
 		<%= f.datetime_select :dayandtimeend, :ampm => true, :minute_step => 15 %>
 	</div>
+	<p></p>
 	<div class = "field">
-		<p>Maximum Attendees: </p>
+		Maximum Attendees:<br />
 		<%= f.select :maxpeople, (4..8) %>
 	</div>
 	<div class = "field">
-		<p></p>
 		<%= f.hidden_field :user_id, :value => current_user.id %>
 	</div>
-	<div class = "actions">
+	<p></p>
+	<div class = "button">
 		<%= f.submit %>
 	</div>
 	<div class="error-msg">

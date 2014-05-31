@@ -1,7 +1,11 @@
 <%= form_for(@user) do |f| %>
 	<div class = "field">
-		<p>Name</p>
-		<%= f.text_field :name %>
+		<p>First Name</p>
+		<%= f.text_field :firstname %>
+	</div>
+	<div class = "field">
+		<p>Last Name</p>
+		<%= f.text_field :lastname %>
 	</div>
 	<div class = "field">
 		<p>Email</p>
@@ -19,7 +23,7 @@
 		<p>Graduation</p>
 		<%= f.text_field :graduation %>
 	</div>
-	<div class = "actions">
+	<div class = "button">
 		<%= f.submit %>
 	</div>
 <% end %>

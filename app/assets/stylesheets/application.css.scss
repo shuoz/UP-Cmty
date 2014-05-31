@@ -19,15 +19,16 @@ body {
  	padding: 0;
  	background-origin: content-box;
  	font-family: Arial, sans-serif;
- 	font-size: 13px;
+ 	font-size: 12px;
  	line-height: 17px;
+ 	font-family: georgia;
 }
 
 #pennlogo {
   	background-image: url(penn_fulllogo.gif);
  	position: fixed;
 	right: -7px;
-	top: -1px;
+	top: -6px;
   	padding: 0px;
   	margin: 10px;
   	background-size: 100%;
@@ -35,10 +36,10 @@ body {
  	min-height: 50px;
  	background-repeat: no-repeat;
  	color: transparent;
- 	z-index: 2;
+ 	z-index: 99;
  }
 
-.content{
+.content {
 	position: relative;
 	width: 100%;
 	margin-left: auto;
@@ -47,20 +48,128 @@ body {
 	padding-left: 20px;
 	z-index: 1;
 	font-family: georgia;
+	font-color: black;
 }
 
-/* NAV BAR */
+.content .photo {
+	position: absolute;
+	left: 300px;
+	top: 80px;
+}
+
+.content h2 {
+	font-family: georgia;
+}
+
+.content .section1 {
+	position: absolute;
+	left: 21px;
+	top: 60px; 
+}
+
+.content .section2 {
+	position: absolute;
+	left: 300px;
+	top: 220px; 
+}
+
+.content .section3 {
+	position: absolute;
+	left: 300px;
+	top: 93px; 
+}
+
+.content .field {
+ 	text-align: left;
+ 	font-weight: bold;
+ 	color: #01256e;
+}
+
+.content .field input, select, button {
+ 	font-family: georgia;
+ 	font-size: 12px;
+ 	background-color: #f1f1f1;
+  	border-radius: 0px;
+  	border-color: #f1f1f1;
+  	padding: 3px;
+  	border: 0px;
+  	text-decoration: none;
+}
+
+.content .button2 input {
+	font-family: georgia;
+	background-color: #f1f1f1;
+	color: #4b4b4b;
+	border-radius: 0px;
+	text-decoration: none;
+	font-size: 12px;
+	cursor: pointer;
+	padding: 2px;
+}
+
+.content table input, td a {
+	font-family: georgia;
+	background-color: transparent;
+	text-decoration: underline;
+	padding: 0px;
+	border: 0px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.content .field a {
+ 	background-color: #f1f1f1;
+  	border-radius: 0px;
+  	border-color: #f1f1f1;
+  	padding: 2px;
+}
+
+.content .button a, .content .button input {
+	background-color: #95001a;
+	border-color: #95001a;
+	border-radius: 0px;
+	color: #f1f1f1;
+	font-family: georgia;
+ 	text-decoration: none;
+ 	font-size: 12px;
+  	padding: 2px;
+}
+
+.content .button input {
+	cursor: pointer;
+}
 
 .nav {
  	position: fixed;
- 	top: -8px;
+ 	top: -13px;
  	width: 100%;
  	height: 25px;
  	padding: 10px;
 	box-shadow: 0px 0px 10px #333;
-	background-color: #E0E0FF;
+	background-color: #01256e;
 	text-align: middle;
  	z-index: 2;
+}
+
+.nav input, select {
+ 	font-family: georgia;
+	font-size: 12px;
+ 	background-color: #f1f1f1;
+  	border-radius: 0px;
+  	border-color: #f1f1f1;
+  	padding: 3px;
+  	border: 0px;
+  	-webkit-appearance: none;
+}
+
+.nav input[name="commit"] {
+	font-family: georgia;
+	font-size: 12px;
+	background-color: #4b4b4b;
+	color: #f1f1f1;
+	border-radius: 0px;
+	text-decoration: none;
+  	cursor: pointer;
 }
 
 .nav ul {
@@ -80,10 +189,16 @@ body {
 	text-align: left;
 	float: none;
 	padding: 5px 10px;
-	color: blue;
+	margin-right: 12px;
+	color: #f1f1f1;
 	text-decoration: none;
 	font-size: 16px;
 	vertical-align: middle;
+}
+
+#comment {
+	display: block;
+	margin-left: -22px;
 }
 
 .dropdown ul {
@@ -91,24 +206,27 @@ body {
 }
 
 .dropdown:hover ul {
-	position: fixed;
-	display: inline-block;
+	position: absolute; top: 100%;
+	display: inline-table;
 	top: 40px;
-	margin-left: -110px;
+	margin-left: -125px;
  	z-index: 3;
 }
 
 .dropdown li {
 	display: block;
 	list-style-type: none;
-	background-color: green;
+	background-color: #95001a;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 .dropdown li a {
 	text-align: left;
-	font-size: 12px;
-	color: #c5c5c5;
+	font-size: 14px;
+	color: #f1f1f1;
 	text-decoration: none;
+	margin-right: 0px;
 }
 
 form {
@@ -116,26 +234,18 @@ form {
 	font-family: georgia;
 }
 
-#type {
-	border: blue;
-}
-
-input [type=submit] {
-	font-family: georgia;
-	border-color: blue;
-}
-
-/*     */
-
 #calendar table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
-#calendar td,
-#calendar th {
+#calendar h2 {
+	color: #01256e;
+}
+
+#calendar td, #calendar th {
   font-family: georgia,arial,helvetica,sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   padding: 6px;
   border: 1px solid #999;
 }
@@ -149,10 +259,10 @@ input [type=submit] {
 
 #calendar td {
   background: #FFF;
-  color: #777;
+  color: #4b4b4b;
   height: 40px;
   vertical-align: top;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #calendar .notmonth {

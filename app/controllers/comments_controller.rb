@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     else
       if @comment.save
         #Notifications.new_comment(@comment).deliver
-  		  redirect_to comments_path
+  		  redirect_to events_path
   	  else
   		  render 'new'
   	  end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   def index
   	if user_signed_in?
       @comments = Comment.all
-      @comments = Comment.order(updated_at: :asc)
+      @comments = Comment.order(updated_at: :desc).limit(100)
     else
       @comments = []
     end

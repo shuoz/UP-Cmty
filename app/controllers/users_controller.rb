@@ -14,17 +14,19 @@ class UsersController < ApplicationController
   end
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :gender, :school, :level, :graduation, :filepicker_url, :tagline)
+  	params.require(:user).permit(:firstname, :lastname, :email, :password, :gender, :school, :level, :graduation, :filepicker_url, :tagline)
   end
 
   def index
   	@users = User.all
-    @users = User.order(name: :asc)
+    @users = User.order(lastname: :asc)
   end
 
   def show
     @user = User.find(params[:id])
     @events = Event.where(user_id: params[:id])
+    @participant = Participant.new
+    @participants = Participant.where(user_id: params[:id])
   end
   
   def edit

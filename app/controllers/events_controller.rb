@@ -45,13 +45,13 @@ class EventsController < ApplicationController
   def index
     @events = Event.scoped
     @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
+    #@participants = Participant.where(event_id: params[:id])
     if user_signed_in?
       @events = Event.all
       @events = Event.order(dayandtime: :asc)
     else
       @events = []
     end
-    @participants = Participant.all
     respond_to do |format|
       format.html
       format.json { render :json => @events }
@@ -61,7 +61,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(event_id: params[:id])
+    @comments = Comment.where(event_id: params[:id]).order(updated_at: :desc).limit(10)
     @participant = Participant.new
     @participants = Participant.where(event_id: params[:id])
     respond_to do |format|

@@ -8,8 +8,11 @@
     <%= f.filepicker_field :filepicker_url %> <!-- User#filepicker_url is a regular string column -->
   </div>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
+  <div><%= f.label "First Name" %><br />
+  <%= f.text_field :firstname %></div>
+
+  <div><%= f.label "Last Name" %><br />
+  <%= f.text_field :lastname %></div>
 
   <div><%= f.label :tagline %><br />
   <%= f.text_field :tagline %></div>

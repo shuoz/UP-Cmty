@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_many :events, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :participants, :dependent => :destroy
-  validates :name, presence: true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
   validates_format_of :email, :with => /.upenn.edu/, :message => "please use a .upenn.edu email"
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, 
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }  
   validates :school, presence: true
   validates :graduation, presence: true
-  validates :tagline, length: {maximum: 150}
+  validates :tagline, length: {maximum: 50}
 
 
   #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },

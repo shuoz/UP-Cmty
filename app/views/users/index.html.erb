@@ -1,6 +1,5 @@
 <table>
 	<tr>
-		<td><div class = "field">User ID</td></div>
 		<td><div class = "field">Name</td></div></div>
 		<td><div class = "field">Email</td></div></div>
 		<td><div class = "field">Gender</td></div></div>
@@ -10,8 +9,7 @@
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
-		<td><div class="column1"><%= user.id %></div></td>
-		<td><div class="column2"><%= link_to user.name, user_show_path(user.id) %></div></td>
+		<td><div class="column2"><%= link_to user.firstname, user_show_path(user.id) %>&nbsp;<%= link_to user.lastname, user_show_path(user.id) %></div></td>
 		<td><div class="column3"><%= user.email %></div></td>
 		<td><div class="column4"><%= user.gender %></div></td>
 		<td><div class="column5"><%= user.school %></div></td>

@@ -1,99 +1,117 @@
-<% @@counter = 0 %>
+<% @@counter = 1 %>
 
-<div>
+<div class = "section1">
 	<h2><%= @event.title %></h2>
 	<p><div class = "field"><%= "Category: " %></div><%= @event.category %></p>
 	<p><div class = "field"><%= "Location: " %></div><%= @event.location %></p>
-	<p><div class = "field"><%= "Start Time: " %></div><%= @event.dayandtime %></p>
-	<p><div class = "field"><%= "End Time: " %></div><%= @event.dayandtimeend %></p>
+	<p><div class = "field"><%= "Start Time: " %></div><%= @event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></p>
+	<p><div class = "field"><%= "End Time: " %></div><%= @event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></p>
 	<p><div class = "field"><%= "Max Attendees: " %></div><%= @event.maxpeople %></p>
-	<p><div class = "field"><%= "Creator: " %></div><%= @event.user.name %></p>
+	<p><div class = "field"><%= "Creator: " %></div><%= @event.user.firstname %>&nbsp;<%= @event.user.lastname %></p>
 	<% if @event.user_id == current_user.id %>
-		<td><%= button_to "Edit", edit_event_path(@event.id), method: :get %></td>
-		<td><%= button_to "Destroy", @event, confirm: "you sure you want to do delete this event?", method: :delete %></td>
+		<div class = "button2" >
+		<td><%= button_to "Edit Event", edit_event_path(@event.id), method: :get %></td>
+		<td><%= button_to "Cancel Event", @event, confirm: "you sure you want to do cancel this event?", method: :delete %></td>
+		</div>
 	<%end %>
+
+	<% if @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).empty? %>
+		<% if @event.user_id == current_user.id %>
+			<td></td>
+			<p></p>
+		<% else %>
+			<td>
+			<%= form_for(@participant) do |f| %>
+				<div class="field">
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+				</div>
+				<div class="field">
+					<%= f.hidden_field :event_id, :value => @event.id %>
+				</div>
+				<div class="button">
+					<% if @@counter < @event.maxpeople %>
+						<%= f.submit "Attend" %>
+					<% else %>
+						<%= f.submit "Waitlist" %>
+					<% end %>
+				</div>
+			<% end %>
+			</td>
+		<% end %>
+	<% else %>
+		<div class="button">
+		<td><%= button_to "Don't Attend", @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!, confirm: "Are you sure you want to unattend this event?", method: :delete %></td>
+		</td>
+		</div>
+	<% end %>
 </div>
 
-<% @participants.each do |participant| %>
-	<% @@counter += 1 %>
-<% end %>
-<%= "Total Attendees: " %>
-<%= @@counter %>
-
-<% if @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).empty? %>
-	<% if @event.user_id == current_user.id %>
-		<td>You are the host!</td>
-		<p></p>
-	<% else %>
-		<td>
-		<%= form_for(@participant) do |f| %>
-			<div class="field">
-				<%= f.hidden_field :user_id, :value => current_user.id %>
-			</div>
-			<div class="field">
-				<%= f.hidden_field :event_id, :value => @event.id %>
-			</div>
-			<div class="actions">
-				<% if @@counter < @event.maxpeople %>
-					<%= f.submit "Attend" %>
-				<% else %>
-					<%= f.submit "Waitlist" %>
-				<% end %>
-			</div>
-		<% end %>
-		</td>
+<div class = "section3">
+	<p></p>
+	<% @participants.each do |participant| %>
+		<% @@counter += 1 %>
 	<% end %>
-<% else %>
-	<td><%= button_to "Don't Attend", @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!, confirm: "you sure you want to unattend this event?", method: :delete %></td>
-	</td>
-<% end %>
-
-<% @@counter = 0 %>
-<% @participants.each do |participant| %>
-	<% @@counter += 1 %>
-	<% if @@counter <= @event.maxpeople %>
-		<td><%= "Attending: "%><%= participant.user.name %></td>
+	<div class = "field"><%= "Total Attendees: " %></div>
+	<% if @@counter < @event.maxpeople %>
+		<%= @@counter %>
 	<% else %>
-		<td><%= "On Waitlist: "%><%= participant.user.name %></td>
+		<%= @event.maxpeople %>
 	<% end %>
 	<p></p>
-<% end %>
 
-<%= form_for(@comment) do |f| %>
-	<div class="field">
-		<%= f.text_field :content %>
-	</div>
-	<div class="field">
-		<%= f.hidden_field :user_id, :value => current_user.id %>
-	</div>
-	<div class="field">
-		<%= f.hidden_field :event_id, :value => @event.id %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
-
-	<% if false %>
-	<div class="error-msg">
-		<% if @comment.errors.any? %>
-		<ul>
-			<% @comment.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-		<% end %>
-	</div>
-	<% end %>
-<% end %> 
-
-<% @comments.each do |comment| %>
-	<tr>
-		<td><%= comment.content %></td>
-		<td><%= comment.user.name %></td>
-		<% if comment.user_id == current_user.id || @event.user_id == current_user.id %>
-			<td><%= button_to "Edit", edit_comment_path(comment.id), method: :get %></td>
-			<td><%= button_to "Destroy", comment, confirm: "you sure you want to do delete this comment?", method: :delete %></td>
+	<% @@counter = 0 %>
+	<td><%= "Attending: "%><%= @event.user.firstname %>&nbsp;<%= @event.user.lastname %></td><p></p>
+	<% @participants.each do |participant| %>
+		<% @@counter += 1 %>
+		<% if @@counter < @event.maxpeople %>
+			<td><%= "Attending: "%><%= participant.user.firstname %>&nbsp;<%= participant.user.lastname %></td>
+		<% else %>
+			<td><%= "On Waitlist: "%><%= participant.user.firstname %>&nbsp;<%= participant.user.lastname %></td>
 		<% end %>
 		<p></p>
-	</tr>
-<% end %>
+	<% end %>
+
+	<div class = "field"><%= "Comments: " %></div>
+	<%= form_for(@comment) do |f| %>
+		<div class="field">
+			<%= f.text_field :content %>
+		</div>
+		<div class="field">
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+		</div>
+		<div class="field">
+			<%= f.hidden_field :event_id, :value => @event.id %>
+		</div>
+		<div class="button">
+			<%= f.submit %>
+		</div>
+
+		<% if false %>
+		<div class="error-msg">
+			<% if @comment.errors.any? %>
+			<ul>
+				<% @comment.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+			<% end %>
+		</div>
+		<% end %>
+	<% end %> 
+	<p></p>
+	<% @comments.each do |comment| %>
+		<tr>
+			<td><%= comment.user.firstname %>: </td>
+			<td><%= comment.content %></td>
+			<% if false %>
+			<% if comment.user_id == current_user.id || @event.user_id == current_user.id %>
+				<div class = "button2">
+				<td><%= button_to "Edit", edit_comment_path(@comment.id), method: :get %></td>
+				<td><%= button_to "Delete", comment, confirm: "Are you sure you want to delete?", method: :delete %></td>
+				</div>
+			<% end %>
+			<% end %>
+			<p></p>
+		</tr>
+	<% end %>
+</div>

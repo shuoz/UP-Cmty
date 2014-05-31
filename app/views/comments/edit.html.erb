@@ -1,16 +1,18 @@
 <%= form_for(@comment) do |f| %>
 	<div class = "field">
-		<p>Comment: </p>
+		Comment:<br />
 		<%= f.text_field :content %>
 	</div>
+	<p></p>
 	<div class = "field">
-		<p></p>
 		<%= f.hidden_field :user_id, :value => current_user.id %>
 	</div>
 	<div class = "field">
-		<p>Event: <%= f.collection_select :event_id, Event.all, :id, :title %></p>
+		Event:<br />
+		<%= f.collection_select :event_id, Event.all, :id, :title %>
 	</div>
-	<div class = "actions">
+	<p></p>
+	<div class = "button">
 		<%= f.submit %>
 	</div>
 	<div class="error-msg">

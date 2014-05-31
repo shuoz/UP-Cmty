@@ -1,3 +1,4 @@
+/*
 $(function(){
 	$('.column1').hover(function(){
 		$('.column1').css("background-color", "gray");},
@@ -61,3 +62,5 @@ $(function(){
   		$('.column7').css("background-color", "white");
 	});
 });
+
+*/
