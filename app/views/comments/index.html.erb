@@ -7,7 +7,7 @@
 	</tr>
 	<% @comments.each do |comment| %>
 	<tr>
-		<td><%= link_to comment.content, comment_path(comment.id) %></td>
+		<td><%= comment.content %></td>
 		<td><%= comment.updated_at.strftime('%a, %b %d %Y %I:%M%P') %></td>
 		<td><%= comment.user.firstname unless comment.user.nil? %>&nbsp;<%= comment.user.lastname unless comment.user.nil? %></td>
 		<td><%= comment.event.title unless comment.event.nil? %></td>

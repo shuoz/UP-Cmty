@@ -19,7 +19,7 @@ body {
  	padding: 0;
  	background-origin: content-box;
  	font-family: Arial, sans-serif;
- 	font-size: 12px;
+ 	font-size: 14px;
  	line-height: 17px;
  	font-family: georgia;
 }
@@ -41,7 +41,7 @@ body {
 
 .content {
 	position: relative;
-	width: 100%;
+	width: 98%;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 60px;
@@ -87,7 +87,7 @@ body {
 
 .content .field input, select, button {
  	font-family: georgia;
- 	font-size: 12px;
+ 	font-size: 14px;
  	background-color: #f1f1f1;
   	border-radius: 0px;
   	border-color: #f1f1f1;
@@ -102,9 +102,23 @@ body {
 	color: #4b4b4b;
 	border-radius: 0px;
 	text-decoration: none;
-	font-size: 12px;
+	font-size: 14px;
 	cursor: pointer;
 	padding: 2px;
+}
+
+.content .button3 input, .button3 a {
+	font-family: georgia;
+	background-color: transparent;
+	text-decoration: underline;
+	padding: 0px;
+	border: 0px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.content table td {
+	padding-right: 15px;
 }
 
 .content table input, td a {
@@ -113,7 +127,7 @@ body {
 	text-decoration: underline;
 	padding: 0px;
 	border: 0px;
-	font-size: 12px;
+	font-size: 14px;
 	cursor: pointer;
 }
 
@@ -131,7 +145,7 @@ body {
 	color: #f1f1f1;
 	font-family: georgia;
  	text-decoration: none;
- 	font-size: 12px;
+ 	font-size: 14px;
   	padding: 2px;
 }
 
@@ -153,7 +167,7 @@ body {
 
 .nav input, select {
  	font-family: georgia;
-	font-size: 12px;
+	font-size: 14px;
  	background-color: #f1f1f1;
   	border-radius: 0px;
   	border-color: #f1f1f1;
@@ -164,7 +178,7 @@ body {
 
 .nav input[name="commit"] {
 	font-family: georgia;
-	font-size: 12px;
+	font-size: 14px;
 	background-color: #4b4b4b;
 	color: #f1f1f1;
 	border-radius: 0px;
@@ -192,7 +206,7 @@ body {
 	margin-right: 12px;
 	color: #f1f1f1;
 	text-decoration: none;
-	font-size: 16px;
+	font-size: 17px;
 	vertical-align: middle;
 }
 
@@ -223,7 +237,7 @@ body {
 
 .dropdown li a {
 	text-align: left;
-	font-size: 14px;
+	font-size: 16px;
 	color: #f1f1f1;
 	text-decoration: none;
 	margin-right: 0px;

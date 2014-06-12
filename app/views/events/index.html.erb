@@ -5,7 +5,7 @@
 		<td><div class = "field">Location</td></div>
 		<td><div class = "field">Start Time</td></div>
 		<td><div class = "field">End Time</td></div>
-		<td><div class = "field">Max Attendance</td></div>
+		<td><div class = "field">Attendance</td></div>
 		<td><div class = "field">Host</td></div>
 	</tr>
 	<% @events.each do |event| %>
@@ -15,15 +15,14 @@
 		<td><%= event.location %></td>
 		<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
 		<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>
-		<td><%= event.maxpeople %></td>
-		<% if false %>
 		<% @@counter = 1 %>
 		<% @participants.each do |participant| %>
-			<% @@counter += 1 %>
+			<% if participant.event.id == event.id %>
+				<% @@counter += 1 %>
+			<% end %>		
 		<% end %>
-		<td><%= @@counter %><%= event.maxpeople %></td>
-		<% end %>
-		<td><%= event.user.firstname %>&nbsp;<%= event.user.lastname %></td>
+		<td><%= @@counter %><%= " / " %><%= event.maxpeople %></td>
+		<td><%= link_to event.user.firstname, user_show_path(event.user.id) %>&nbsp;<%= link_to event.user.lastname, user_show_path(event.user.id) %></td>
 		<% if event.user_id == current_user.id %>
 			<div class = "button2">
 			<td><%= link_to "Edit", edit_event_path(event.id) %></td>

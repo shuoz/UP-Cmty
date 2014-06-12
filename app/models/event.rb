@@ -2,8 +2,9 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
   has_many :participants, :dependent => :destroy
-  validates :title, presence: true
+  validates :title, :location, presence: true
   validates :title, uniqueness: true
+  validates :title, :location, length: {within: 1..30}
 
   scope :between, lambda {|start_time, end_time|
     {:conditions => ["? < dayandtime < ?", Event.format_date(start_time), Event.format_date(end_time)] }

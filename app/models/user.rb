@@ -6,15 +6,12 @@ class User < ActiveRecord::Base
   has_many :events, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :participants, :dependent => :destroy
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+  validates :firstname, :lastname, presence: true
   validates_format_of :email, :with => /.upenn.edu/, :message => "please use a .upenn.edu email"
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, 
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }  
-  validates :school, presence: true
-  validates :graduation, presence: true
+                    uniqueness: { case_sensitive: false }
   validates :tagline, length: {maximum: 50}
 
 

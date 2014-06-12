@@ -12,8 +12,9 @@ class EventsController < ApplicationController
   end
 
   def create
-  	@event = Event.new(event_params)  
+  	@event = Event.new(event_params)
     respond_to do |format|
+    #@event.dayandtimeend.change(:day => @event.dayandtime.day)
       if @event.user_id != current_user.id
         redirect_to root_path
       else
@@ -45,7 +46,9 @@ class EventsController < ApplicationController
   def index
     @events = Event.scoped
     @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
-    #@participants = Participant.where(event_id: params[:id])
+    #@events = @events.for_user(params[:user_id]) if params[:user_id].present?
+    #@events = Event.where(params[:user_id] == current_user.id)
+    @participants = Participant.all
     if user_signed_in?
       @events = Event.all
       @events = Event.order(dayandtime: :asc)

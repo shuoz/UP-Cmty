@@ -7,7 +7,7 @@
 	<p><div class = "field"><%= "Start Time: " %></div><%= @event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></p>
 	<p><div class = "field"><%= "End Time: " %></div><%= @event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></p>
 	<p><div class = "field"><%= "Max Attendees: " %></div><%= @event.maxpeople %></p>
-	<p><div class = "field"><%= "Creator: " %></div><%= @event.user.firstname %>&nbsp;<%= @event.user.lastname %></p>
+	<p><div class = "field"><%= "Creator: " %></div><%= link_to @event.user.firstname, user_show_path(@event.user.id) %>&nbsp;<%= link_to @event.user.lastname, user_show_path(@event.user.id) %></p>
 	<% if @event.user_id == current_user.id %>
 		<div class = "button2" >
 		<td><%= button_to "Edit Event", edit_event_path(@event.id), method: :get %></td>
@@ -60,13 +60,13 @@
 	<p></p>
 
 	<% @@counter = 0 %>
-	<td><%= "Attending: "%><%= @event.user.firstname %>&nbsp;<%= @event.user.lastname %></td><p></p>
+	<td><%= "Attending: "%><%= link_to @event.user.firstname, user_show_path(@event.user.id) %>&nbsp;<%= link_to @event.user.lastname, user_show_path(@event.user.id) %></td><p></p>
 	<% @participants.each do |participant| %>
 		<% @@counter += 1 %>
 		<% if @@counter < @event.maxpeople %>
-			<td><%= "Attending: "%><%= participant.user.firstname %>&nbsp;<%= participant.user.lastname %></td>
+			<td><%= "Attending: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
 		<% else %>
-			<td><%= "On Waitlist: "%><%= participant.user.firstname %>&nbsp;<%= participant.user.lastname %></td>
+			<td><%= "On Waitlist: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
 		<% end %>
 		<p></p>
 	<% end %>
