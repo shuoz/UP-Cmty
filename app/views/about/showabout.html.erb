@@ -1,6 +1,8 @@
+<% @@shuo_id = 1 %>
+
 <h2>Welcome to the Social Calendar!</h2>
 <p>I am a second year Wharton MBA student and I built this website to help students at the various schools at Penn connect with one another more easily.</p>
-<p>Check out my <%= link_to "profile", "http://localhost:3000/users/show/7" %> or <%= mail_to "shuoz@wharton.upenn.edu", "contact me" %> if you have any comments or questions about this website</p>
+<p>Check out my <%= link_to "profile", user_show_path(@@shuo_id) %> or <%= mail_to "shuoz@wharton.upenn.edu", "contact me" %> if you have any comments or questions about this website</p>
 <br />
 
 <% if false %>
