@@ -17,6 +17,11 @@
 	<p><div class = "field">School: </div><%= @user.school %></p>
 	<p><div class = "field">Level: </div><%= @user.level %></p>
 	<p><div class = "field">Graduation: </div><%= @user.graduation %></p>
+	<% if @user.id == current_user.id %>
+		<div class = "button2" >
+			<td><%= button_to "Edit User", edit_user_registration_path, method: :get %></td>
+		</div>
+	<% end %>
 	<% if false %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>

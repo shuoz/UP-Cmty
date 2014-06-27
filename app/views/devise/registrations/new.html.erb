@@ -1,10 +1,12 @@
+<%= filepicker_js_include_tag %>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div>
-    <%= f.label :filepicker_url, "Upload Your Avatar:" %>
+    <%= f.label :filepicker_url, "Picture Upload (requires page refresh)" %><br />
     <%= f.filepicker_field :filepicker_url %> <!-- User#filepicker_url is a regular string column -->
   </div>
 

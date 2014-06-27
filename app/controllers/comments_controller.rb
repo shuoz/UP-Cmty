@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
     else
       if @comment.save
         #Notifications.new_comment(@comment).deliver
-  		  redirect_to events_path
+  		  #redirect_to events_path
+        #render :partial => "comment", :object => @comment
+        redirect_to event_path(@comment.event_id)
   	  else
   		  render 'new'
   	  end
@@ -48,7 +50,8 @@ class CommentsController < ApplicationController
       render 'edit'
     else
       if @comment.update_attributes(comment_params)
-        redirect_to comment_path(@comment.id)
+        redirect_to event_path(@comment.event_id)
+        #redirect_to comment_path(@comment.id)
       else
         render 'edit'
       end
@@ -58,6 +61,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to comments_path
+    redirect_to event_path(@comment.event_id)
+    #redirect_to comments_path
   end
 end

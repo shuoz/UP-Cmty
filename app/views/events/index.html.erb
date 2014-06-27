@@ -15,7 +15,7 @@
 		<td><%= event.location %></td>
 		<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
 		<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>
-		<% @@counter = 1 %>
+		<% @@counter = 0 %>
 		<% @participants.each do |participant| %>
 			<% if participant.event.id == event.id %>
 				<% @@counter += 1 %>
