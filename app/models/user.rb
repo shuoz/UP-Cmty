@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   #  :url =>  "/app/assets/images/:style/':avatar_file_name.png'",
-    #:default_url => ActionController::Base.helpers.asset_path('missing_:style.png'),
+  #:default_url => ActionController::Base.helpers.asset_path('missing_:style.png'),
   #  :path => ":root_path/public/assets/'missing_:style.png'"
   #validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   #validates_attachment :avatar, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] }
