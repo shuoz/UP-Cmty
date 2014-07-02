@@ -78,9 +78,9 @@ SocialCalendar3::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.filepicker_rails.cdn_host = "Your CDN host name"
+  config.filepicker_rails.cdn_host = "d2v8blf6aa0zzy.cloudfront.net"
   
-  config.action_mailer.default_url_options = {host: 'peaceful-river-1075.herokuapp.com'}
+  config.action_mailer.default_url_options = {host: 'penncommunity.herokuapp.com'}
   config.action_mailer.smtp_settings = {
     :address => 'smtp.sendgrid.net',
     :port => '587',
