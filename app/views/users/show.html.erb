@@ -1,8 +1,10 @@
+<%= filepicker_js_include_tag %>
+
 <div class = "photo">
 	<% if @user.filepicker_url.blank? %>
 	<%= @user.firstname %><%= " is camera shy!" %>
 	<% else %>
-	<%= image_tag(@user.filepicker_url, width: '160', height: '160') %>
+	<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
 	<% if false %>
 	<%= filepicker_save_button "Save", @user.filepicker_url, "image/jpg" %>
 	<% end %>
