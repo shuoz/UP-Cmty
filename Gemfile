@@ -17,7 +17,7 @@ end
 
 gem 'paperclip', '~> 4.1'
 
-gem 'filepicker-rails', '~> 1.1'
+gem 'filepicker-rails'
 
 #gem 'twitter-bootstrap-calendar'
 

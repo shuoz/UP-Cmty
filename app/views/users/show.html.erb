@@ -4,15 +4,12 @@
 	<% if @user.filepicker_url.blank? %>
 	<%= @user.firstname %><%= " is camera shy!" %>
 	<% else %>
-	<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
-	<% if false %>
-	<%= filepicker_save_button "Save", @user.filepicker_url, "image/jpg" %>
-	<% end %>
+	<%= image_tag(@user.filepicker_url, height: '135') %>
 	<% end %>
 </div>
 
 <div class = "section1">
-	<h2><%= @user.firstname %>&nbsp;<%= @user.lastname %></h2><%= @user.filepicker_url %>
+	<h2><%= @user.firstname %>&nbsp;<%= @user.lastname %></h2>
 	<p><div class = "field">Tagline: </div><%= @user.tagline %></p>
 	<p><div class = "field">Email: </div><%= @user.email %></p>
 	<p><div class = "field">Gender: </div><%= @user.gender %></p>
