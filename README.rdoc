@@ -43,3 +43,14 @@ Problems I encountered:
 -The CSS styling was not showing up after I pushed to heroku. I changed "config.assets.compile" to "true" in the config/production.rb file, and it seemed to fix the issue
 -filepicker wasn't properly saving the picture. I fixed this by ensuring that "filepicker_url" was listed within the "configure_permitted_parameters" in the application controller
 -Please note: sometimes certain pages need to be refreshed for the calendar view and filepicker view to work
+
+
+
+<%= filepicker_js_include_tag %>
+<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+<%= image_tag(@user.filepicker_url, height: '135') %>
+
+
+AWSAccessKeyId=AKIAJONGOBAX5LSYNKKQ
+AWSSecretKey=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

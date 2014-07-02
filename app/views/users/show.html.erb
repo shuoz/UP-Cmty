@@ -19,7 +19,11 @@
 			<td><%= button_to "Edit User", edit_user_registration_path, method: :get %></td>
 		</div>
 	<% end %>
+
 	<% if false %>
+	<% if current_user.admin = true %>
+		<td><%= button_to "Edit User", edit_user_registration_path, method: :get %></td>
+	<% end %>
 	<p><%= button_to "Edit User", edit_user_registration_path(user.id) %></p>
 	<p><%= button_to "Delete User", destroy_user_path(user), confirm: "Are you sure you want to delete?", method: :delete %></p>
 	<% end %>
