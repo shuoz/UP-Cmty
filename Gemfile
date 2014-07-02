@@ -15,9 +15,9 @@ group :production do
 	gem 'pg'
 end
 
-gem "paperclip", "~> 4.1"
+gem 'paperclip', '~> 4.1'
 
-gem 'filepicker-rails'
+gem 'filepicker-rails', '~> 1.1'
 
 #gem 'twitter-bootstrap-calendar'
 

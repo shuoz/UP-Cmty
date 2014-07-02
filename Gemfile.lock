@@ -145,7 +145,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
-  filepicker-rails
+  filepicker-rails (~> 1.1)
   fullcalendar-rails
   jbuilder (~> 1.2)
   jquery-rails
