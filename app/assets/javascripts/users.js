@@ -1,4 +1,4 @@
-var base_url = "d2v8blf6aa0zzy.cloudfront.net/MY_S3_BUCKET/"
+/*var base_url = "d2v8blf6aa0zzy.cloudfront.net/MY_S3_BUCKET/"
 
 function onImageUpload() {
 	filepicker.pickAndStore(
