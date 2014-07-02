@@ -19,7 +19,7 @@ class EventsController < ApplicationController
         redirect_to root_path
       else
         if @event.save
-          #Notifications.new_event(@event).deliver
+          Notifications.new_event(@event).deliver
           format.html { redirect_to events_path, :notice => 'Event was successfully created.' }
           format.json { render :json => @event, :status => :created, :location => @event }
         else
