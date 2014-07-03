@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :participants, :dependent => :destroy
   validates :title, :location, presence: true
-  validates :title, uniqueness: true
+  #validates :title, uniqueness: true
   validates :title, :location, length: {within: 1..30}
 
   scope :between, lambda {|start_time, end_time|
