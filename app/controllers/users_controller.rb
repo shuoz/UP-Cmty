@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   	params.require(:user).permit(:firstname, :lastname, :email, :password, :gender, :school, :level, :graduation, :filepicker_url, :tagline)
   end
 
-  def index
+  def userindex
   	@users = User.all
     @users = User.order(lastname: :asc)
   end
