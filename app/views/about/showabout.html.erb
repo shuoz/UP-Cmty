@@ -1,8 +1,12 @@
 <% @@shuo_id = 1 %>
 
 <h2>Welcome to Penn Community!</h2>
-<p>I am a second year Wharton MBA student and I built this website to help students across Penn campus connect with one another more easily. Despite all living in the same campus, few of us ever hang out with people outside our own academic and social circle. Let's instead all embrace the diverse and vibrant Penn Community! </p>
+<p>There are over 24,000 students at Penn, but few of us hang out with people outside our immediate academic and social circles. Through organized small group events, Penn Community helps students across campus connect with one another more easily.</p>
 <p>Check out my <%= link_to "profile", user_show_path(@@shuo_id) %> or <%= mail_to "shuoz@wharton.upenn.edu", "contact me" %> if you have any comments, questions or feedback about this website. I'm constantly looking to improve the experience for all of you!</p>
+
+<div class = "signup-button" >
+<td><%= button_to "Join The Penn Community Today", new_user_registration_path, method: :get %></td>
+</div>
 <br />
 
 <h2>House Rules</h2>

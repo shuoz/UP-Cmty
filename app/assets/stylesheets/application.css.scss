@@ -24,6 +24,12 @@ body {
  	font-family: georgia;
 }
 
+h2 {
+	font-family: georgia;
+	color: #01256e;
+	font-weight: bold;
+}
+
 #pennlogo {
   	background-image: url(penn_fulllogo.gif);
  	position: fixed;
@@ -55,10 +61,6 @@ body {
 	position: absolute;
 	left: 300px;
 	top: 80px;
-}
-
-.content h2 {
-	font-family: georgia;
 }
 
 .content .section1 {
@@ -115,6 +117,17 @@ body {
 	border: 0px;
 	font-size: 14px;
 	cursor: pointer;
+}
+
+.content .signup-button input{
+	font-family: georgia;
+	background-color: #95001a;
+	color: #f1f1f1;
+	border-radius: 0px;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 12px;
 }
 
 .content table td {
