@@ -13,88 +13,234 @@
 
  */
 body {
-  background-color: url("background1.jpeg");
+  background-image: url(crossword.png);
   margin: 0;
   padding: 0;
+  background-origin: content-box;
   font-family: Arial, sans-serif;
-  font-size: 13px;
-  line-height: 17px; }
+  font-size: 14px;
+  line-height: 17px;
+  font-family: georgia; }
+
+h2 {
+  font-family: georgia;
+  color: #01256e;
+  font-weight: bold; }
+
+#pennlogo {
+  background-image: url(penn_fulllogo.gif);
+  position: fixed;
+  right: -7px;
+  top: -6px;
+  padding: 0px;
+  margin: 10px;
+  background-size: 100%;
+  min-width: 115px;
+  min-height: 50px;
+  background-repeat: no-repeat;
+  color: transparent;
+  z-index: 99; }
 
 .content {
   position: relative;
-  width: 974px;
+  width: 98%;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  padding-top: 60px;
+  padding-left: 20px;
   z-index: 1;
-  font-family: georgia; }
+  font-family: georgia;
+  font-color: black; }
 
-/* NAV BAR */
+.content .photo {
+  position: absolute;
+  left: 300px;
+  top: 80px; }
+
+.content .section1 {
+  position: absolute;
+  left: 21px;
+  top: 60px; }
+
+.content .section2 {
+  position: absolute;
+  left: 300px;
+  top: 220px; }
+
+.content .section3 {
+  position: absolute;
+  left: 300px;
+  top: 93px; }
+
+.content .field {
+  text-align: left;
+  font-weight: bold;
+  color: #01256e; }
+
+.content .field input, select, button {
+  font-family: georgia;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  border-radius: 0px;
+  border-color: #f1f1f1;
+  padding: 3px;
+  border: 0px;
+  text-decoration: none; }
+
+.content .button2 input {
+  font-family: georgia;
+  background-color: #f1f1f1;
+  color: #4b4b4b;
+  border-radius: 0px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px; }
+
+.content .button3 input, .button3 a {
+  font-family: georgia;
+  background-color: transparent;
+  text-decoration: underline;
+  padding: 0px;
+  border: 0px;
+  font-size: 14px;
+  cursor: pointer; }
+
+.content .signup-button input {
+  font-family: georgia;
+  background-color: #95001a;
+  color: #f1f1f1;
+  border-radius: 0px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 12px; }
+
+.content table td {
+  padding-right: 15px; }
+
+.content table input, td a {
+  font-family: georgia;
+  background-color: transparent;
+  text-decoration: underline;
+  padding: 0px;
+  border: 0px;
+  font-size: 14px;
+  cursor: pointer; }
+
+.content .field a {
+  background-color: #f1f1f1;
+  border-radius: 0px;
+  border-color: #f1f1f1;
+  padding: 2px; }
+
+.content .button a, .content .button input {
+  background-color: #95001a;
+  border-color: #95001a;
+  border-radius: 0px;
+  color: #f1f1f1;
+  font-family: georgia;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 2px; }
+
+.content .button input {
+  cursor: pointer; }
+
 .nav {
-  position: relative;
-  top: 0;
+  position: fixed;
+  top: -13px;
   width: 100%;
-  height: 30px;
+  height: 25px;
+  padding: 10px;
   box-shadow: 0px 0px 10px #333;
-  background-color: #E0E0FF; }
+  background-color: #01256e;
+  text-align: middle;
+  z-index: 2; }
 
-ul {
-  list-style-type: none;
+.nav input, select {
+  font-family: georgia;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  border-radius: 0px;
+  border-color: #f1f1f1;
+  padding: 3px;
+  border: 0px;
+  -webkit-appearance: none; }
+
+.nav input[name="commit"] {
+  font-family: georgia;
+  font-size: 14px;
+  background-color: #4b4b4b;
+  color: #f1f1f1;
+  border-radius: 0px;
+  text-decoration: none;
+  cursor: pointer; }
+
+.nav ul {
+  position: fixed;
   margin: 0;
   padding: 10;
-  text-align: left; }
+  text-align: left;
+  vertical-align: middle;
+  text-decoration: none; }
 
 .nav li {
   display: inline; }
 
-.nav-link {
-  padding: 10px;
-  padding-top: 13px;
-  padding-bottom: 14px;
+.nav li a {
+  text-align: left;
+  float: none;
+  padding: 5px 10px;
+  margin-right: 25px;
+  color: #f1f1f1;
   text-decoration: none;
-  color: #D7D7D7;
-  float: left; }
+  font-size: 17px;
+  vertical-align: middle; }
+
+#comment {
+  display: block;
+  margin-left: -22px; }
 
 .dropdown ul {
-  display: none;
-  width: 10em; }
+  display: none; }
 
 .dropdown:hover ul {
   position: absolute;
-  display: block;
-  top: 10;
-  margin: 0;
-  padding: 0;
-  z-index: 5; }
+  top: 100%;
+  display: inline-table;
+  top: 40px;
+  margin-left: -135px;
+  z-index: 3; }
 
 .dropdown li {
-  text-decoration: none;
   display: block;
-  float: none;
   list-style-type: none;
-  background-color: black;
-  padding: 5px; }
+  background-color: #95001a;
+  padding-top: 2px;
+  padding-bottom: 2px; }
 
 .dropdown li a {
   text-align: left;
-  text-decoration: none; }
-
-.dropdown li a {
-  float: none;
-  padding: 10px 15px 10px;
-  color: #c5c5c5;
+  font-size: 16px;
+  color: #f1f1f1;
   text-decoration: none;
-  text-shadow: 0 1px 0 #282828; }
+  margin-right: 0px; }
 
-/*     */
+form {
+  display: inline;
+  font-family: georgia; }
+
 #calendar table {
   border-collapse: collapse;
   width: 100%; }
 
-#calendar td,
-#calendar th {
-  font-family: "Lucida Grande",arial,helvetica,sans-serif;
-  font-size: 10px;
+#calendar h2 {
+  color: #01256e; }
+
+#calendar td, #calendar th {
+  font-family: georgia,arial,helvetica,sans-serif;
+  font-size: 12px;
   padding: 6px;
   border: 1px solid #999; }
 
@@ -106,10 +252,10 @@ ul {
 
 #calendar td {
   background: #FFF;
-  color: #777;
-  height: 80px;
+  color: #4b4b4b;
+  height: 40px;
   vertical-align: top;
-  font-size: 16px; }
+  font-size: 14px; }
 
 #calendar .notmonth {
   color: #CCC; }
@@ -119,30 +265,35 @@ ul {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center; }
-.questions {
-  text-align: left;
-  font-weight: bold;
-  color: blue; }
+
+/*
+#calendar .fc-event-inner {
+	width: 100%px;
+	overflow: visible;
+}
+*/
 .fc-event-skin {
   background-color: #3366CC;
   border-color: #3366CC;
   color: #FFFFFF; }
-.field {
-  text-align: left;
-  font-weight: bold;
-  color: blue; }
+
+.custom,
+.custom div,
+.custom span {
+  background-color: black;
+  border-color: black;
+  color: black; }
 .calendar td {
   height: 100px;
   width: 14.28%; }
+.headings {
+  color: black;
+  font-size: 18px; }
 
-.field {
+.questions {
   text-align: left;
   font-weight: bold;
-  color: blue; }
-.field {
-  text-align: left;
-  font-weight: bold;
-  color: blue; }
+  color: #01256e; }
 /*!
  * FullCalendar v1.6.4 Stylesheet
  * Docs & License: http://arshaw.com/fullcalendar/

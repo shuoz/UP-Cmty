@@ -11258,7 +11258,7 @@ return jQuery;
 (function() {
   var updateEvent;
 
-  $(document).ready(function() {
+  $(document).on('ready page:load', function() {
     return $('#calendar').fullCalendar({
       editable: true,
       header: {
@@ -11297,9 +11297,25 @@ return jQuery;
   };
 
 }).call(this);
+/*
 $(function(){
-	//code goes here
+	$(".button").on("click", function(){
+		var valuesToSubmit = $("form#new_comment").serialize();
+		$.ajax({
+			type: "POST",
+			url: "/comments",
+			data: valuesToSubmit,
+			dataType: "HTML"
+		}).success(function(data){
+			alert("success");
+			$(".comments").append(data);
+			return false;
+		});
+		return false;
+	});
 });
+*/
+;
 (function() {
 
 
@@ -11308,6 +11324,18 @@ $(function(){
 
 
 }).call(this);
+/*var base_url = "d2v8blf6aa0zzy.cloudfront.net/MY_S3_BUCKET/"
+
+function onImageUpload() {
+	filepicker.pickAndStore(
+		{},
+		{location: "S3", access: "public"},
+		function(InkBlobs){
+			console.log(JSON.stringify(InkBlobs));
+	});
+};
+
+/*
 $(function(){
 	$('.column1').hover(function(){
 		$('.column1').css("background-color", "gray");},
@@ -11371,6 +11399,10 @@ $(function(){
   		$('.column7').css("background-color", "white");
 	});
 });
+
+*/
+
+;
 /*!
  * FullCalendar v1.6.4
  * Docs & License: http://arshaw.com/fullcalendar/
