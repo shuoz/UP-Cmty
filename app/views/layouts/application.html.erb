@@ -62,12 +62,17 @@
 		<li id = "pennlogo">Penn Logo</li>
 	</ul>
 
-<div class = "content">
-	<p class = "notice"><%= notice %></p>
-	<p class = "alert"><%= alert %></p>
-	<%= yield %>
-</div>
-
-<br />
+	<div class = "content">
+		<p class = "notice"><%= notice %></p>
+		<p class = "alert"><%= alert %></p>
+		<%= yield %>
+	</div>
+	<br />
+	
+	<% if false %>
+	<ul class = "footer">
+		<div class = "footer-text"></div>
+	</ul>
+	<% end %>
 </body>
 </html>

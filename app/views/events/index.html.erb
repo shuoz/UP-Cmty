@@ -1,4 +1,5 @@
 <table>
+	<h2>Upoming Events</h2>
 	<tr>
 		<td><div class = "field">Title</td></div>
 		<td><div class = "field">Category</td></div>
@@ -9,29 +10,70 @@
 		<td><div class = "field">Host</td></div>
 	</tr>
 	<% @events.each do |event| %>
-	<tr>
-		<td><%= link_to event.title, event_path(event.id) %></td>
-		<td><%= event.category %></td>
-		<td><%= event.location %></td>
-		<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
-		<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>
-		<% @@counter = 0 %>
-		<% @participants.each do |participant| %>
-			<% if participant.event.id == event.id %>
-				<% @@counter += 1 %>
-			<% end %>		
+		<% if event.dayandtime > Time.now %>
+		<tr>
+			<td><%= link_to event.title, event_path(event.id) %></td>
+			<td><%= event.category %></td>
+			<td><%= event.location %></td>
+			<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
+			<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>
+			<% @@counter = 0 %>
+			<% @participants.each do |participant| %>
+				<% if participant.event.id == event.id %>
+					<% @@counter += 1 %>
+				<% end %>		
+			<% end %>
+			<td><%= @@counter %><%= " / " %><%= event.maxpeople %></td>
+			<td><%= link_to event.user.firstname, user_show_path(event.user.id) %>&nbsp;<%= link_to event.user.lastname, user_show_path(event.user.id) %></td>
+			<% if event.user_id == current_user.id %>
+				<div class = "button2">
+				<td><%= link_to "Edit", edit_event_path(event.id) %></td>
+				<td><%= button_to "Delete", event, confirm: "Are you sure you want to delete?", method: :delete %></td>
+				</div>
+			<% end %>
+		</tr>
 		<% end %>
-		<td><%= @@counter %><%= " / " %><%= event.maxpeople %></td>
-		<td><%= link_to event.user.firstname, user_show_path(event.user.id) %>&nbsp;<%= link_to event.user.lastname, user_show_path(event.user.id) %></td>
-		<% if event.user_id == current_user.id %>
-			<div class = "button2">
-			<td><%= link_to "Edit", edit_event_path(event.id) %></td>
-			<td><%= button_to "Delete", event, confirm: "Are you sure you want to delete?", method: :delete %></td>
-			</div>
-		<% end %>
-	</tr>
 	<% end %>
-	
+</table>
+
+<table>
+	<h2>Past Events</h2>
+	<tr>
+		<td><div class = "field">Title</td></div>
+		<td><div class = "field">Category</td></div>
+		<td><div class = "field">Location</td></div>
+		<td><div class = "field">Start Time</td></div>
+		<td><div class = "field">End Time</td></div>
+		<td><div class = "field">Attendance</td></div>
+		<td><div class = "field">Host</td></div>
+	</tr>
+	<% @events.each do |event| %>
+		<% if event.dayandtime < Time.now %>
+		<tr>
+			<td><%= link_to event.title, event_path(event.id) %></td>
+			<td><%= event.category %></td>
+			<td><%= event.location %></td>
+			<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
+			<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>
+			<% @@counter = 0 %>
+			<% @participants.each do |participant| %>
+				<% if participant.event.id == event.id %>
+					<% @@counter += 1 %>
+				<% end %>		
+			<% end %>
+			<td><%= @@counter %><%= " / " %><%= event.maxpeople %></td>
+			<td><%= link_to event.user.firstname, user_show_path(event.user.id) %>&nbsp;<%= link_to event.user.lastname, user_show_path(event.user.id) %></td>
+			<% if event.user_id == current_user.id %>
+				<div class = "button2">
+				<td><%= link_to "Edit", edit_event_path(event.id) %></td>
+				<td><%= button_to "Delete", event, confirm: "Are you sure you want to delete?", method: :delete %></td>
+				</div>
+			<% end %>
+		</tr>
+		<% end %>
+	<% end %>
+</table>
+
 	<% if false %>
 	<tr>
 		<td>Event</td>
@@ -47,5 +89,3 @@
 		</tr>
 		<% end %>
 	<% end %>
-
-</table>
