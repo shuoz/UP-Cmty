@@ -23,6 +23,11 @@
 					<% @@counter += 1 %>
 				<% end %>		
 			<% end %>
+			<% @guests.each do |guest| %>
+				<% if guest.event.id == event.id %>
+					<% @@counter += 1 %>
+				<% end %>		
+			<% end %>
 			<td><%= @@counter %><%= " / " %><%= event.maxpeople %></td>
 			<td><%= link_to event.user.firstname, user_show_path(event.user.id) %>&nbsp;<%= link_to event.user.lastname, user_show_path(event.user.id) %></td>
 			<% if event.user_id == current_user.id %>
@@ -61,6 +66,11 @@
 					<% @@counter += 1 %>
 				<% end %>		
 			<% end %>
+			<% @guests.each do |guest| %>
+				<% if guest.event.id == event.id %>
+					<% @@counter += 1 %>
+				<% end %>		
+			<% end %>
 			<td><%= @@counter %><%= " / " %><%= event.maxpeople %></td>
 			<td><%= link_to event.user.firstname, user_show_path(event.user.id) %>&nbsp;<%= link_to event.user.lastname, user_show_path(event.user.id) %></td>
 			<% if event.user_id == current_user.id %>
@@ -74,6 +84,7 @@
 	<% end %>
 </table>
 
+<% if false %>
 <table>
 	<tr>
 		<td><div class = "field">Event</div></td>
@@ -82,10 +93,27 @@
 	<% @participants.each do |participant| %>
 	<tr>
 		<td><%= participant.event.title %></td>
-		<td><%= participant.user.firstname %><%= participant.user.lastname %></td>
+		<td><%= participant.user.firstname %>&nbsp;<%= participant.user.lastname %></td>
 		<% if participant.user_id == current_user.id %>
 		<td><%= button_to "Don't Attend", participant, confirm: "you sure you want to unattend this event?", method: :delete %></td>
 		<% end %>
 	</tr>
 	<% end %>
 </table>
+
+<table>
+	<tr>
+		<td><div class = "field">Event</div></td>
+		<td><div class = "field">Guest</div></td>
+	</tr>
+	<% @guests.each do |guest| %>
+	<tr>
+		<td><%= guest.event.title %></td>
+		<td><%= guest.user.firstname %>&nbsp;<%= guest.user.lastname %></td>
+		<% if guest.user_id == current_user.id %>
+		<td><%= button_to "Remove Guest", guest, confirm: "you sure you want your guest to unattend this event?", method: :delete %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>
+<% end %>

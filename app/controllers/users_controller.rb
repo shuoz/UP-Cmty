@@ -27,6 +27,8 @@ class UsersController < ApplicationController
     @events = Event.where(user_id: params[:id])
     @participant = Participant.new
     @participants = Participant.where(user_id: params[:id])
+    @guest = Guest.new
+    @guests = Guest.where(user_id: params[:id])
   end
   
   def edit

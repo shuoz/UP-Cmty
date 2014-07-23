@@ -1,4 +1,6 @@
-<% @@counter = 0 %>
+<% @guests.each do |guest| %>
+	<% guest.listed = 0 %>
+<% end %>
 
 <div class = "section1">
 	<h2><%= @event.title %></h2>
@@ -25,28 +27,91 @@
 					<%= f.hidden_field :event_id, :value => @event.id %>
 				</div>
 				<div class="button">
+					<% @@counter = 0 %>
+					<% @participants.each do |participant| %>
+						<% @@counter += 1 %>
+					<% end %>
+					<% @guests.each do |guest| %>
+						<% @@counter += 1 %>
+					<% end %>
 					<% if @@counter < @event.maxpeople %>
 						<%= f.submit "Attend" %>
 					<% else %>
-						<%= f.submit "Waitlist" %>
+						<%= f.submit "Join Waitlist" %>
 					<% end %>
 				</div>
 			<% end %>
 			</td>
 	<% else %>
 		<div class="button">
-		<td><%= button_to "Don't Attend", @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!, confirm: "Are you sure you want to unattend this event?", method: :delete %></td>
-		</td>
-		<% if false %>
-			@participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!
+		<% @@counter = 0 %>
+		<% @participants.each do |participant| %>
+			<% @@counter += 1 %>
 		<% end %>
+		<% @guests.each do |guest| %>
+			<% @@counter += 1 %>
+		<% end %>
+		<td><%= button_to "Don't Attend", @participants.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!, confirm: "Are you sure you want to unattend this event?", method: :delete %></td>
 		</div>
+		<% if @guests.where("user_id = ? AND event_id = ?", current_user.id, @event.id).empty? %>
+			<td>
+			<%= form_for(@guest) do |f| %>
+				<div class="field">
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+				</div>
+				<div class="field">
+					<%= f.hidden_field :event_id, :value => @event.id %>
+				</div>
+				<% @@participantfindid = 0 %>
+				<% @participants.each do |participant| %>
+					<% if participant.user_id == current_user.id %>
+						<% @@participantfindid = participant.id %>
+					<% end %>
+				<% end %>
+				<div class="field">
+					<%= f.hidden_field :participant_id, :value => @@participantfindid %>
+				</div>
+				<div class="field">
+					<%= f.hidden_field :listed, :value => 0 %>
+				</div>
+				<div class="button">
+					<% @@counter = 0 %>
+					<% @participants.each do |participant| %>
+						<% @@counter += 1 %>
+					<% end %>
+					<% @guests.each do |guest| %>
+						<% @@counter += 1 %>
+					<% end %>
+					<% if @@counter < @event.maxpeople %>
+						<%= f.submit "Add Guest" %>
+					<% else %>
+						<%= f.submit "Add Guest to Waitlist" %>
+					<% end %>
+				</div>
+			<% end %>
+			</td>
+		<% else %>
+			<div class="button">
+				<% @@counter = 0 %>
+				<% @participants.each do |participant| %>
+					<% @@counter += 1 %>
+				<% end %>
+				<% @guests.each do |guest| %>
+					<% @@counter += 1 %>
+				<% end %>
+				<td><%= button_to "Remove Guest", @guests.where("user_id = ? AND event_id = ?", current_user.id, @event.id).take!, confirm: "Are you sure you want to remove guest?", method: :delete %></td>
+			</div>
+		<% end %>
 	<% end %>
 </div>
 
 <div class = "section3">
 	<p></p>
+	<% @@counter = 0 %>
 	<% @participants.each do |participant| %>
+		<% @@counter += 1 %>
+	<% end %>
+	<% @guests.each do |guest| %>
 		<% @@counter += 1 %>
 	<% end %>
 	<div class = "field"><%= "Total Attendees: " %></div>
@@ -62,13 +127,84 @@
 	<td><%= "Attending: "%><%= link_to @event.user.firstname, user_show_path(@event.user.id) %>&nbsp;<%= link_to @event.user.lastname, user_show_path(@event.user.id) %></td><p></p>
 	<% end %>
 	<% @participants.each do |participant| %>
-		<% @@counter += 1 %>
+		<% @guests.each do |guest| %>
+			<% if guest.created_at < participant.created_at and guest.listed != 1 %>
+				<% if @@counter < @event.maxpeople %>
+					<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+				<% else %>
+					<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+				<% end %>
+				<% guest.listed = 1 %>
+				<% @@counter += 1 %>
+				<p></p>
+			<% end %>
+		<% end %>
 		<% if @@counter < @event.maxpeople %>
 			<td><%= "Attending: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
 		<% else %>
 			<td><%= "On Waitlist: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
 		<% end %>
+		<% @@counter += 1 %>
 		<p></p>
+	<% end %>
+	<% @guests.each do |guest| %>
+		<% if guest.listed != 1 %>
+			<% if @@counter < @event.maxpeople %>
+				<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+				<% @@counter += 1 %>
+				<p></p>
+			<% else %>
+				<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+				<% @@counter += 1 %>
+				<p></p>
+			<% end %>
+		<% end %>
+	<% end %>
+
+
+	<% if false %>
+		<% if @@counter < @event.maxpeople %>
+			<td><%= "Attending: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
+			<% @@counter += 1 %>
+			<p></p>
+			<% @guests.each do |guest| %>
+				<% if guest.participant_id == participant.id %>
+					<% if @@counter < @event.maxpeople %>
+						<% @@counter += 1 %>
+						<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+					<% else %>
+						<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+					<% end %>
+				<% end %>
+				<p></p>
+			<% end %>
+		<% else %>
+			<td><%= "On Waitlist: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
+			<p></p>
+			<% @guests.each do |guest| %>
+				<% if guest.participant_id == participant.id %>
+					<% if @@counter < @event.maxpeople %>
+						<% @@counter += 1 %>
+						<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+					<% else %>
+						<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+					<% end %>
+				<% end %>
+				<p></p>
+			<% end %>
+		<% end %>
+	<% end %>
+
+	<% if false %>
+	<% @guests.each do |guest| %>
+		<% @@counter += 1 %>
+		<% if @@counter <= @event.maxpeople %>
+			<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+		<% else %>
+			<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+		<% end %>
+		<p></p>
+	<% end %>
 	<% end %>
 
 	<div class = "field"><%= "Comments: " %></div>

@@ -50,6 +50,7 @@ class EventsController < ApplicationController
     #@events = @events.for_user(params[:user_id]) if params[:user_id].present?
     #@events = Event.where(params[:user_id] == current_user.id)
     @participants = Participant.all
+    @guests = Guest.all
     if user_signed_in?
       @events = Event.all
       @events = Event.order(dayandtime: :asc)
@@ -67,7 +68,9 @@ class EventsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(event_id: params[:id]).order(updated_at: :desc).limit(10)
     @participant = Participant.new
-    @participants = Participant.where(event_id: params[:id])
+    @participants = Participant.where(event_id: params[:id]).order('created_at ASC')
+    @guest = Guest.new
+    @guests = Guest.where(event_id: params[:id]).order('created_at ASC')
     respond_to do |format|
       format.html
       format.json { render :json => @event }

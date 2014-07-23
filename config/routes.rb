@@ -8,6 +8,7 @@ SocialCalendar3::Application.routes.draw do
 
   resources :calendars, :only => [:index]
   resources :participants, :only => [:create, :destroy]
+  resources :guests, :only => [:create, :destroy]
 
   devise_for :users
   resources :events

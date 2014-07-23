@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
   has_many :participants, :dependent => :destroy
+  has_many :guests, :dependent => :destroy
   validates :title, :location, presence: true
   #validates :title, uniqueness: true
   validates :title, :location, length: {within: 1..30}

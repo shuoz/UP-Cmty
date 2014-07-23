@@ -1,6 +1,6 @@
-class Participant < ActiveRecord::Base
+class Guest < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
-  has_many :guests, :dependent => :destroy
+  belongs_to :participant
   validates :event_id, uniqueness: {scope: :user_id}
 end
