@@ -14,7 +14,7 @@ class ParticipantsController < ApplicationController
   end
 
   def participant_params
-  	params.require(:participant).permit(:user_id, :event_id)
+  	params.require(:participant).permit(:user_id, :event_id, :timejoined)
   end
 
   def destroy

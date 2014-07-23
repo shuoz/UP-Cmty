@@ -26,6 +26,9 @@
 				<div class="field">
 					<%= f.hidden_field :event_id, :value => @event.id %>
 				</div>
+				<div class="field">
+					<%= f.hidden_field :timejoined, :value => Time.now %>
+				</div>
 				<div class="button">
 					<% @@counter = 0 %>
 					<% @participants.each do |participant| %>
@@ -128,7 +131,7 @@
 	<% end %>
 	<% @participants.each do |participant| %>
 		<% @guests.each do |guest| %>
-			<% if guest.created_at < participant.created_at and guest.listed != 1 %>
+			<% if guest.created_at < participant.timejoined and guest.listed != 1 %>
 				<% if @@counter < @event.maxpeople %>
 					<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
 				<% else %>

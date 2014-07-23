@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723061425) do
+ActiveRecord::Schema.define(version: 20140723171356) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140723061425) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "event_id"
+    t.datetime "timejoined"
   end
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id"
