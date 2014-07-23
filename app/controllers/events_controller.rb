@@ -68,9 +68,13 @@ class EventsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(event_id: params[:id]).order(updated_at: :desc).limit(10)
     @participant = Participant.new
-    @participants = Participant.where(event_id: params[:id]).order('created_at ASC')
+    temp1 = Participant.where(event_id: params[:id])
+    @participants = temp1.order(created_at: :asc)
+    #@participants = Participant.where(event_id: params[:id]).order('created_at ASC')
     @guest = Guest.new
-    @guests = Guest.where(event_id: params[:id]).order('created_at ASC')
+    temp2 = Guest.where(event_id: params[:id])
+    @guests = temp2.order(created_at: :asc)
+    #@guests = Guest.where(event_id: params[:id]).order('created_at ASC')
     respond_to do |format|
       format.html
       format.json { render :json => @event }
