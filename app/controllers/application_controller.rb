@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
       when "firstname"
         @users = User.where("firstname LIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
-        render 'users/index'
+        render 'users/userindex'
       when "lastname"
         @users = User.where("lastname LIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
-        render 'users/index'
+        render 'users/userindex'
       else
         render 'none'
     end

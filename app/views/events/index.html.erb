@@ -74,18 +74,18 @@
 	<% end %>
 </table>
 
-	<% if false %>
+<table>
 	<tr>
-		<td>Event</td>
-		<td>Participant</td>
+		<td><div class = "field">Event</div></td>
+		<td><div class = "field">Participant</div></td>
 	</tr>
-		<% @participants.each do |participant| %>
-		<tr>
-			<td><%= participant.event.title %></td>
-			<td><%= participant.user.firstname %><%= participant.user.lastname %></td>
-			<% if participant.user_id == current_user.id %>
-			<td><%= button_to "Don't Attend", participant, confirm: "you sure you want to unattend this event?", method: :delete %></td>
-			<% end %>
-		</tr>
+	<% @participants.each do |participant| %>
+	<tr>
+		<td><%= participant.event.title %></td>
+		<td><%= participant.user.firstname %><%= participant.user.lastname %></td>
+		<% if participant.user_id == current_user.id %>
+		<td><%= button_to "Don't Attend", participant, confirm: "you sure you want to unattend this event?", method: :delete %></td>
 		<% end %>
+	</tr>
 	<% end %>
+</table>
