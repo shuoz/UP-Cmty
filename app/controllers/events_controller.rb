@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   def new
   	if user_signed_in?
       @event = Event.new
@@ -53,7 +55,8 @@ class EventsController < ApplicationController
     @guests = Guest.all
     if user_signed_in?
       @events = Event.all
-      @events = Event.order(dayandtime: :asc)
+      #@events = Event.order(dayandtime: :asc)
+      @events = Event.order(sort_column + " " + sort_direction)
     else
       @events = []
     end
@@ -68,9 +71,9 @@ class EventsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(event_id: params[:id]).order(updated_at: :desc).limit(10)
     @participant = Participant.new
-    @participants = Participant.where(event_id: params[:id])#.order('created_at ASC')
+    @participants = Participant.where(event_id: params[:id]).order(timejoined: :asc)
     @guest = Guest.new
-    @guests = Guest.where(event_id: params[:id])#.order('created_at ASC')
+    @guests = Guest.where(event_id: params[:id]).order(updated_at: :asc)
     respond_to do |format|
       format.html
       format.json { render :json => @event }
@@ -106,6 +109,7 @@ class EventsController < ApplicationController
     #    render 'edit'
     #  end
     #end
+    #Notifications.event_reminder(@event).deliver
   end
 
   def destroy
@@ -118,5 +122,13 @@ class EventsController < ApplicationController
     end
 
     #redirect_to events_path
+  end
+
+  def sort_column
+    Event.column_names.include?(params[:sort]) ? params[:sort] : "dayandtime"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

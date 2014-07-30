@@ -47,18 +47,18 @@ h2 {
 }
 
 #pennlogo {
-  	background-image: url(penn_fulllogo.gif);
+  	background-image: url(Logo3-clear.png);
  	position: fixed;
-	right: -7px;
-	top: -6px;
+	right: -4px;
+	top: -4px;
   	padding: 0px;
   	margin: 10px;
   	background-size: 100%;
-  	min-width: 115px;
- 	min-height: 50px;
+  	width: 215px;
+ 	height: 50px;
  	background-repeat: no-repeat;
  	color: transparent;
- 	z-index: 99;
+ 	z-index: 2;
  }
 
 .content {
@@ -161,10 +161,13 @@ h2 {
 }
 
 .content .field a {
- 	background-color: #f1f1f1;
+ 	text-align: left;
+ 	font-weight: bold;
+ 	color: #01256e;
+ 	/*background-color: #f1f1f1;
   	border-radius: 0px;
   	border-color: #f1f1f1;
-  	padding: 2px;
+  	padding: 2px;*/
 }
 
 .content .button a, .content .button input {
@@ -203,6 +206,7 @@ h2 {
   	padding: 3px;
   	border: 0px;
   	-webkit-appearance: none;
+  	z-index: 4;
 }
 
 .nav input[name="commit"] {
@@ -213,6 +217,7 @@ h2 {
 	border-radius: 0px;
 	text-decoration: none;
   	cursor: pointer;
+  	z-index: 4;
 }
 
 .nav ul {
@@ -226,6 +231,7 @@ h2 {
 
 .nav li {
 	display: inline;
+	z-index: 4;
 }
 
 .nav li a {
@@ -237,6 +243,7 @@ h2 {
 	text-decoration: none;
 	font-size: 17px;
 	vertical-align: middle;
+	z-index: 4;
 }
 
 #comment {
@@ -253,7 +260,7 @@ h2 {
 	display: inline-table;
 	top: 40px;
 	margin-left: -135px;
- 	z-index: 3;
+ 	z-index: 4;
 }
 
 .dropdown li {

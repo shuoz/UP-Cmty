@@ -2,12 +2,12 @@
 
 <table>
 	<tr>
-		<td><div class = "field">Name</td></div></div>
-		<td><div class = "field">Email</td></div></div>
-		<td><div class = "field">Gender</td></div></div>
-		<td><div class = "field">School</td></div></div>
-		<td><div class = "field">Level</td></div></div>
-		<td><div class = "field">Graduation</td></div>
+		<td><div class = "field"><%= user_sortable "Name", "lastname" %></td></div></div>
+		<td><div class = "field"><%= user_sortable "Email", "email" %></td></div></div>
+		<td><div class = "field"><%= user_sortable "Gender", "gender" %></td></div></div>
+		<td><div class = "field"><%= user_sortable "School", "school" %></td></div></div>
+		<td><div class = "field"><%= user_sortable "Level", "level" %></td></div></div>
+		<td><div class = "field"><%= user_sortable "Graduation", "graduation" %></td></div>
 	</tr>
 	<% @users.each do |user| %>
 	<tr>

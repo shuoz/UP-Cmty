@@ -1,13 +1,13 @@
 <table>
 	<h2>Upoming Events</h2>
 	<tr>
-		<td><div class = "field">Title</td></div>
-		<td><div class = "field">Category</td></div>
-		<td><div class = "field">Location</td></div>
-		<td><div class = "field">Start Time</td></div>
-		<td><div class = "field">End Time</td></div>
+		<td><div class = "field"><%= event_sortable "Title", "title" %></td></div>
+		<td><div class = "field"><%= event_sortable "Category", "category" %></td></div>
+		<td><div class = "field"><%= event_sortable "Location", "location" %></td></div>
+		<td><div class = "field"><%= event_sortable "Start Time", "dayandtime" %></td></div>
+		<td><div class = "field"><%= event_sortable "End Time", "dayandtimeend" %></td></div>
 		<td><div class = "field">Attendance</td></div>
-		<td><div class = "field">Host</td></div>
+		<td><div class = "field">Creator</td></div>
 	</tr>
 	<% @events.each do |event| %>
 		<% if event.dayandtime > Time.now %>
@@ -44,13 +44,13 @@
 <table>
 	<h2>Past Events</h2>
 	<tr>
-		<td><div class = "field">Title</td></div>
-		<td><div class = "field">Category</td></div>
-		<td><div class = "field">Location</td></div>
-		<td><div class = "field">Start Time</td></div>
-		<td><div class = "field">End Time</td></div>
+		<td><div class = "field"><%= event_sortable "Title", "title" %></td></div>
+		<td><div class = "field"><%= event_sortable "Category", "category" %></td></div>
+		<td><div class = "field"><%= event_sortable "Location", "location" %></td></div>
+		<td><div class = "field"><%= event_sortable "Start Time", "dayandtime" %></td></div>
+		<td><div class = "field"><%= event_sortable "End Time", "dayandtimeend" %></td></div>
 		<td><div class = "field">Attendance</td></div>
-		<td><div class = "field">Host</td></div>
+		<td><div class = "field">Creator</td></div>
 	</tr>
 	<% @events.each do |event| %>
 		<% if event.dayandtime < Time.now %>
