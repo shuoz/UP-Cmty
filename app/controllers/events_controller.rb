@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  helper_method :sort_column, :sort_direction
+  #helper_method :sort_column, :sort_direction
 
   def new
   	if user_signed_in?
@@ -55,8 +55,8 @@ class EventsController < ApplicationController
     @guests = Guest.all
     if user_signed_in?
       @events = Event.all
-      #@events = Event.order(dayandtime: :asc)
-      @events = Event.order(sort_column + " " + sort_direction)
+      @events = Event.order(dayandtime: :asc)
+      #@events = Event.order(sort_column + " " + sort_direction)
     else
       @events = []
     end
@@ -124,11 +124,11 @@ class EventsController < ApplicationController
     #redirect_to events_path
   end
 
-  def sort_column
-    Event.column_names.include?(params[:sort]) ? params[:sort] : "dayandtime"
-  end
+  #def sort_column
+  #  Event.column_names.include?(params[:sort]) ? params[:sort] : "dayandtime"
+  #end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
+  #def sort_direction
+  #  %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  #end
 end

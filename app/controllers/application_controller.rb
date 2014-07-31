@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!, :except => [:showabout]
   before_filter :update_sanitized_params, if: :devise_controller?
 
-  helper_method :sort_column, :sort_direction
+  #helper_method :sort_column, :sort_direction
 
   def search
     case params[:type]
@@ -32,18 +32,17 @@ class ApplicationController < ActionController::Base
       else
         render 'none'
     end
+
   end
 
-  def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
-    Event.column_names.include?(params[:sort]) ? params[:sort] : "dayandtime"
-  end
+  #def sort_column
+  #  User.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
+  #  Event.column_names.include?(params[:sort]) ? params[:sort] : "dayandtime"
+  #end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-
+  #def sort_direction
+  #  %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  #end
 
   protected
 

@@ -1,6 +1,16 @@
 <table>
 	<h2>Upoming Events</h2>
 	<tr>
+		<td><div class = "field">Title</td></div>
+		<td><div class = "field">Category</td></div>
+		<td><div class = "field">Location</td></div>
+		<td><div class = "field">Start Time</td></div>
+		<td><div class = "field">End Time</td></div>
+		<td><div class = "field">Attendance</td></div>
+		<td><div class = "field">Creator</td></div>
+	</tr>
+	<% if false %>
+	<tr>
 		<td><div class = "field"><%= event_sortable "Title", "title" %></td></div>
 		<td><div class = "field"><%= event_sortable "Category", "category" %></td></div>
 		<td><div class = "field"><%= event_sortable "Location", "location" %></td></div>
@@ -9,6 +19,7 @@
 		<td><div class = "field">Attendance</td></div>
 		<td><div class = "field">Creator</td></div>
 	</tr>
+	<% end %>
 	<% @events.each do |event| %>
 		<% if event.dayandtime > Time.now %>
 		<tr>
@@ -44,6 +55,16 @@
 <table>
 	<h2>Past Events</h2>
 	<tr>
+		<td><div class = "field">Title</td></div>
+		<td><div class = "field">Category</td></div>
+		<td><div class = "field">Location</td></div>
+		<td><div class = "field">Start Time</td></div>
+		<td><div class = "field">End Time</td></div>
+		<td><div class = "field">Attendance</td></div>
+		<td><div class = "field">Creator</td></div>
+	</tr>
+	<% if false %>
+	<tr>
 		<td><div class = "field"><%= event_sortable "Title", "title" %></td></div>
 		<td><div class = "field"><%= event_sortable "Category", "category" %></td></div>
 		<td><div class = "field"><%= event_sortable "Location", "location" %></td></div>
@@ -52,6 +73,7 @@
 		<td><div class = "field">Attendance</td></div>
 		<td><div class = "field">Creator</td></div>
 	</tr>
+	<% end %>
 	<% @events.each do |event| %>
 		<% if event.dayandtime < Time.now %>
 		<tr>
