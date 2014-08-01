@@ -34,11 +34,14 @@ class Event < ActiveRecord::Base
   end
 
   def self.reminder
-    #@events = Event.all
-    @events = Event.all(:conditions => ["? < dayandtime < ?", Time.now.beginning_of_day, Time.now.end_of_day])
+    @events = Event.all
+    #@events = Event.all(:conditions => ["dayandtime BETWEEN ? AND ?", Time.now.beginning_of_day, Time.now.end_of_day])
+    #@events = Event.where(dayandtime.to_date == Time.now.to_date)
     @events = Event.order(dayandtime: :asc)
     @events.each do |event|
-      Notifications.event_reminder(event).deliver
+      if event.dayandtime.to_date == Time.now.to_date
+        Notifications.event_reminder(event).deliver
+      end
     end
   end
 
