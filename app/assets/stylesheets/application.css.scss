@@ -48,15 +48,14 @@ h2 {
 
 #pennlogo {
   	background-image: url(Logo3-clear.png);
- 	position: relative;
-	/*right: -4px;*/
-	left: 750px;
+ 	position: absolute;
+	right: -4px;
 	top: -4px;
   	padding: 0px;
   	margin: 10px;
   	background-size: 100%;
   	width: 215px;
- 	height: 50px;
+ 	height: 40px;
  	background-repeat: no-repeat;
  	color: transparent;
  	z-index: 2;
