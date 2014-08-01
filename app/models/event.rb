@@ -35,7 +35,7 @@ class Event < ActiveRecord::Base
 
   def self.reminder
     #@events = Event.all
-    @events = Event.all(:conditions => ["dayandtime BETWEEN ? AND ?", Time.now.beginning_of_day, Time.now.end_of_day])
+    @events = Event.where(:conditions => ["dayandtime BETWEEN ? AND ?", Time.now.beginning_of_day, Time.now.end_of_day])
     @events = Event.order(dayandtime: :asc)
     @events.each do |event|
       Notifications.event_reminder(event).deliver
