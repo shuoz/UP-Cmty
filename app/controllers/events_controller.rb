@@ -47,6 +47,12 @@ class EventsController < ApplicationController
   end
 
   def index
+    @events = Event.all
+    @events = Event.order(dayandtime: :asc)
+    @events.each do |event|
+      Notifications.event_reminder(event).deliver
+    end
+
     @events = Event.scoped
     @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
     #@events = @events.for_user(params[:user_id]) if params[:user_id].present?
@@ -109,7 +115,6 @@ class EventsController < ApplicationController
     #    render 'edit'
     #  end
     #end
-    #Notifications.event_reminder(@event).deliver
   end
 
   def destroy

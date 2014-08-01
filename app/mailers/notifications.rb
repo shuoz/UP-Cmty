@@ -15,7 +15,7 @@ class Notifications < ActionMailer::Base
   end
 
   def event_reminder(event)
-    @time = event.dayandtime
+    #@time = event.dayandtime
     @id = event.id
     #event.reflect_on_all_associations(:belongs_to)
     

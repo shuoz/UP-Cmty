@@ -10,22 +10,22 @@ class ApplicationController < ActionController::Base
   def search
     case params[:type]
       when "title"
-        @events = Event.where("title LIKE ?", "%" + params[:search] + "%")
+        @events = Event.where("title ILIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
         @guests = Guest.all
         render 'events/index'
       when "category"
-        @events = Event.where("category LIKE ?", "%" + params[:search] + "%")
+        @events = Event.where("category ILIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
         @guests = Guest.all
         render 'events/index'
       when "firstname"
-        @users = User.where("firstname LIKE ?", "%" + params[:search] + "%")
+        @users = User.where("firstname ILIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
         @guests = Guest.all
         render 'users/userindex'
       when "lastname"
-        @users = User.where("lastname LIKE ?", "%" + params[:search] + "%")
+        @users = User.where("lastname ILIKE ?", "%" + params[:search] + "%")
         @participants = Participant.all
         @guests = Guest.all
         render 'users/userindex'

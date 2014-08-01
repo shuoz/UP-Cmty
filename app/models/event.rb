@@ -33,4 +33,14 @@ class Event < ActiveRecord::Base
     Time.at(date_time.to_i).to_formatted_s(:long)
   end
 
+  def reminder
+    @events = Event.all
+    @events = Event.order(dayandtime: :asc)
+    @events.each do |event|
+      Notifications.event_reminder(event).deliver
+    end
+    #@events = Event.all#(:conditions => ["dayandtime BETWEEN ? AND ?", Time.now.beginning_of_day, Time.now.end_of_day])
+    #Notifications.new_event(@event).deliver
+  end
+
 end
