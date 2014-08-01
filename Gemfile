@@ -58,8 +58,7 @@ group :doc do
 end
 
 #gem 'delayed_job'
-
-gem 'whenever', :require => false
+#gem 'whenever', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

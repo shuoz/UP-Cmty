@@ -45,7 +45,6 @@ Problems I encountered:
 -Please note: sometimes certain pages need to be refreshed for the calendar view and filepicker view to work
 
 
-
 <%= filepicker_js_include_tag %>
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 <%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>
@@ -54,3 +53,7 @@ Problems I encountered:
 
 AWSAccessKeyId=AKIAJONGOBAX5LSYNKKQ
 AWSSecretKey=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
+
+
+whenever --update-crontab
+crontab -l

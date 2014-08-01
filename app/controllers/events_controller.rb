@@ -47,11 +47,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
-    @events = Event.order(dayandtime: :asc)
-    @events.each do |event|
-      Notifications.event_reminder(event).deliver
-    end
+    #@events = Event.all
+    #@events = Event.order(dayandtime: :asc)
+    #@events.each do |event|
+    #  Notifications.event_reminder(event).deliver
+    #end
 
     @events = Event.scoped
     @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
