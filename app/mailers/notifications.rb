@@ -64,7 +64,7 @@ class Notifications < ActionMailer::Base
     #  end
     #end
 
-    mail(to: @event_members, subject: 'Event Reminder')
+    mail(to: @event_members, subject: 'Penn Community Event Reminder')
     #mail(to: "shuoz@wharton.upenn.edu", subject: 'Event Reminder')
   end
 

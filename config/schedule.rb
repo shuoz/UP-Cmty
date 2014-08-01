@@ -25,6 +25,6 @@
 #set :environment, "development"
 #set :environment, "production"
 
-#every 2.minutes do
-#  runner "Event.reminder"#, :environment => :development
-#end
+every 1.day, :at => '10:24 am' do
+  runner "Event.reminder", :environment => :production
+end
