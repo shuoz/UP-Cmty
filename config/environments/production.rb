@@ -81,7 +81,7 @@ SocialCalendar3::Application.configure do
   config.filepicker_rails.cdn_host = "d2v8blf6aa0zzy.cloudfront.net"
   
   config.action_mailer.default_url_options = {host: 'penncommunity.com'}
-  config.action_mailer.smtp_settings = :sendmail
+  config.action_mailer.smtp_settings = :smtp
   # = {
   #  :address => 'smtp.sendgrid.net',
   #  :port => '587',
