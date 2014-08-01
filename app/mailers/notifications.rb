@@ -64,8 +64,8 @@ class Notifications < ActionMailer::Base
     #  end
     #end
 
-    #mail(to: @event_members, subject: 'Event Reminder')
-    mail(to: "shuoz@wharton.upenn.edu", subject: 'Event Reminder')
+    mail(to: @event_members, subject: 'Event Reminder')
+    #mail(to: "shuoz@wharton.upenn.edu", subject: 'Event Reminder')
   end
 
  def new_comment(comment)
