@@ -60,8 +60,9 @@ class EventsController < ApplicationController
     @participants = Participant.all
     @guests = Guest.all
     if user_signed_in?
-      @events = Event.all
-      @events = Event.order(dayandtime: :asc)
+      #@events = Event.all
+      #@events = Event.order(dayandtime: :asc)
+      @events = Event.all(:order => "dayandtime ASC, title ASC")
       #@events = Event.order(sort_column + " " + sort_direction)
     else
       @events = []
