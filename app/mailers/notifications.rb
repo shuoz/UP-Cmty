@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  default from: "shuoz@wharton.upenn.edu"
+  default from: "admin@penncommunity.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
