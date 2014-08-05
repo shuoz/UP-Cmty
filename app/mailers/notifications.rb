@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  default from: "admin@penncommunity.com"
+  default from: "shuoz@wharton.upenn.edu"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -64,8 +64,11 @@ class Notifications < ActionMailer::Base
     #  end
     #end
 
-    mail(to: @event_members, subject: 'Penn Community Event Reminder')
-    #mail(to: "shuoz@wharton.upenn.edu", subject: 'Event Reminder')
+    if @event_members.empty? == false
+      mail(to: @event_members, subject: 'Penn Community Event Reminder')
+    #else
+      #mail(to: "shuoz@wharton.upenn.edu", subject: 'Empty Event')
+    end
   end
 
  def new_comment(comment)
