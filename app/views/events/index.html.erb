@@ -1,5 +1,5 @@
 <table>
-	<h2>Upoming Events</h2>
+	<h2>Upcoming Events</h2>
 	<tr>
 		<td><div class = "field">Title</td></div>
 		<td><div class = "field">Category</td></div>
@@ -76,7 +76,7 @@
 	<% end %>
 	<% @@eventcounter = 0 %>
 	<% @events.each do |event| %>
-		<% if event.dayandtime < Time.now and @@eventcounter < 100 %>
+		<% if event.dayandtime < Time.now and @@eventcounter < 99999 %>
 		<tr>
 			<td><%= link_to event.title, event_path(event.id) %></td>
 			<td><%= event.category %></td>

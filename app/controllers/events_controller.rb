@@ -63,6 +63,9 @@ class EventsController < ApplicationController
       #@events = Event.all
       #@events = Event.order(dayandtime: :asc)
       @events = Event.all(:order => "dayandtime ASC, title ASC")
+      #if Event.dayandtime > Time.now
+        #@events = Event.all(:order => "dayandtime DESC, title ASC")
+      #end
       #@events = Event.order(sort_column + " " + sort_direction)
     else
       @events = []

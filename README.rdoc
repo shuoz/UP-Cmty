@@ -53,8 +53,3 @@ Problems I encountered:
 
 AWSAccessKeyId=AKIAJONGOBAX5LSYNKKQ
 AWSSecretKey=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
-
-
-whenever --update-crontab
-crontab -l
-heroku run rake reminder
