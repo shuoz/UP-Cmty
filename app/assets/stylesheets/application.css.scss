@@ -49,7 +49,8 @@ h2 {
 #pennlogo {
   	background-image: url(Logo3-clear.png);
  	position: fixed;
-	right: -4px;
+	/*right: -4px;*/
+	left: 750px;
 	top: -4px;
   	padding: 0px;
   	margin: 10px;
@@ -197,9 +198,17 @@ h2 {
  	z-index: 2;
 }
 
-.nav input, select {
+.nav input {
+ 	position: fixed;
+ 	left: 400px;
  	font-family: georgia;
 	font-size: 14px;
+  	z-index: 4;
+}
+
+.nav select {
+	position: fixed;
+ 	left: 560px;
  	background-color: #f1f1f1;
   	border-radius: 0px;
   	border-color: #f1f1f1;
@@ -210,18 +219,19 @@ h2 {
 }
 
 .nav input[name="commit"] {
-	font-family: georgia;
-	font-size: 14px;
+	position: fixed;
+	left: 670px;
 	background-color: #4b4b4b;
 	color: #f1f1f1;
 	border-radius: 0px;
 	text-decoration: none;
   	cursor: pointer;
   	z-index: 4;
+  	padding: 3px;
+  	border: 0px;
 }
 
 .nav ul {
-	position: fixed;
  	margin: 0;
  	padding: 10;
  	text-align: left;
@@ -280,6 +290,7 @@ h2 {
 }
 
 form {
+	position: relative;
 	display: inline;
 	font-family: georgia;
 }

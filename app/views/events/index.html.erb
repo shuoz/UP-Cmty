@@ -74,8 +74,9 @@
 		<td><div class = "field">Creator</td></div>
 	</tr>
 	<% end %>
+	<% @@eventcounter = 0 %>
 	<% @events.each do |event| %>
-		<% if event.dayandtime < Time.now %>
+		<% if event.dayandtime < Time.now and @@eventcounter < 100 %>
 		<tr>
 			<td><%= link_to event.title, event_path(event.id) %></td>
 			<td><%= event.category %></td>
@@ -102,6 +103,7 @@
 				</div>
 			<% end %>
 		</tr>
+		<% @@eventcounter += 1 %>
 		<% end %>
 	<% end %>
 </table>

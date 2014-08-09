@@ -240,7 +240,8 @@
 	<p></p>
 	<% @comments.each do |comment| %>
 		<tr>
-			<td><%= comment.user.firstname %>: </td>
+			<td><%= comment.user.firstname %></td>
+			<td> [<%= comment.updated_at.strftime('%a, %b %d %I:%M%P') %>] </td>
 			<td><%= comment.content %></td>
 			<% if comment.user_id == current_user.id %>
 				<div class = "button2">

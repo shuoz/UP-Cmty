@@ -27,10 +27,11 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.label :gender %><br />
-  <%= f.select :gender, [['Male','Male'],['Female','Female']] %></div>
+  <%= f.select :gender, [['',''],['Male','Male'],['Female','Female']] %></div>
 
   <div><%= f.label :school %><br />
-  <%= f.select :school, [['Annenberg','Annenberg'],
+  <%= f.select :school, [['',''],
+                        ['Annenberg','Annenberg'],
                         ['Arts & Sciences','Arts & Sciences'],
                         ['Dental','Dental'],
                         ['Design','Design'],
@@ -44,10 +45,14 @@
                         ['Wharton','Wharton']] %></div>
 
   <div><%= f.label :level %><br />
-  <%= f.select :level, [['Undergraduate','Undergraduate'],['Graduate','Graduate'],['Alumnus','Alumnus'],['Faculty/Staff','Faculty/Staff']] %></div>
+  <%= f.select :level, [['',''],
+                        ['Undergraduate','Undergraduate'],
+                        ['Graduate','Graduate'],
+                        ['Alumnus','Alumnus'],
+                        ['Faculty/Staff','Faculty/Staff']] %></div>
 
   <div><%= f.label :graduation %><br />
-  <%= f.select :graduation, (2000..2030) %></div>
+  <%= f.select :graduation, (2000..2020) %></div>
 
   <div class = "button"><%= f.submit "Sign up" %></div>
 <% end %>

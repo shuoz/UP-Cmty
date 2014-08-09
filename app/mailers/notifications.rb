@@ -26,10 +26,10 @@ class Notifications < ActionMailer::Base
     
     @participants.each do |participant|
       if participant.event.id == event.id
-        if @@counter < event.maxpeople
+        #if @@counter < event.maxpeople
           @event_members.push(participant.user.email)
-          @@counter += 1
-        end
+          #@@counter += 1
+        #end
       end
     end
 

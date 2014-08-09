@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :participants, :dependent => :destroy
   has_many :guests, :dependent => :destroy
-  validates :firstname, :lastname, presence: true
+  validates :firstname, :lastname, :gender, :school, :level, :graduation, presence: true
   validates_format_of :email, :with => /.upenn.edu/, :message => "please use a .upenn.edu email"
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, 
