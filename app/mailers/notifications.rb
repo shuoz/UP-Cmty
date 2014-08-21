@@ -7,6 +7,13 @@ class Notifications < ActionMailer::Base
   #   en.notifications.new_comment.subject
   # 
 
+  def user_intro(user)
+    @id = user.id
+    @firstname = user.firstname
+
+    mail(to: user.email, subject: 'Welcome to Penn Community!')
+  end
+
   def new_event(event)
     @greeting = "New Event"
     @id = event.id
@@ -71,7 +78,7 @@ class Notifications < ActionMailer::Base
     end
   end
 
- def new_comment(comment)
+  def new_comment(comment)
     @greeting = "New Comment"
     @id = comment.id
     @commenter = comment.user.firstname

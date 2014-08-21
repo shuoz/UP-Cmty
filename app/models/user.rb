@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :tagline, length: {maximum: 50}
 
+  after_save :welcome_email
+
+  def welcome_email
+    Notifications.user_intro(self).deliver
+  end
 
   #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   #  :url =>  "/app/assets/images/:style/':avatar_file_name.png'",

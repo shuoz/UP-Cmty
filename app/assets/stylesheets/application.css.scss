@@ -273,11 +273,11 @@ h2 {
  	z-index: 4;
 }
 
-.dropdown li {
+.dropdown:hover li {
 	display: block;
 	list-style-type: none;
 	background-color: #95001a;
-	padding-top: 2px;
+	padding-top: 0px;
 	padding-bottom: 2px;
 }
 
