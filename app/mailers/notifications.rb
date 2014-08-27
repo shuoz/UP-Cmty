@@ -71,11 +71,11 @@ class Notifications < ActionMailer::Base
     #  end
     #end
 
-    if @event_members.empty? == false
-      mail(to: @event_members, subject: 'Penn Community Event Reminder')
+    #if @event_members.empty? == false
+    #  mail(to: @event_members, subject: 'Penn Community Event Reminder')
     #else
-      #mail(to: "shuoz@wharton.upenn.edu", subject: 'Empty Event')
-    end
+      mail(to: "shuoz@wharton.upenn.edu", subject: 'Empty Event')
+    #end
   end
 
   def new_comment(comment)
