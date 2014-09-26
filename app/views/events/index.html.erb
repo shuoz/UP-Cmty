@@ -3,6 +3,7 @@
 	<tr>
 		<td><div class = "field">Title</td></div>
 		<td><div class = "field">Category</td></div>
+		<td><div class = "field">Affiliation</td></div>
 		<td><div class = "field">Location</td></div>
 		<td><div class = "field">Start Time</td></div>
 		<td><div class = "field">End Time</td></div>
@@ -13,6 +14,7 @@
 	<tr>
 		<td><div class = "field"><%= event_sortable "Title", "title" %></td></div>
 		<td><div class = "field"><%= event_sortable "Category", "category" %></td></div>
+		<td><div class = "field"><%= event_sortable "Affiliation", "school" %></td></div>
 		<td><div class = "field"><%= event_sortable "Location", "location" %></td></div>
 		<td><div class = "field"><%= event_sortable "Start Time", "dayandtime" %></td></div>
 		<td><div class = "field"><%= event_sortable "End Time", "dayandtimeend" %></td></div>
@@ -25,6 +27,7 @@
 		<tr>
 			<td><%= link_to event.title, event_path(event.id) %></td>
 			<td><%= event.category %></td>
+			<td><%= event.school %></td>
 			<td><%= event.location %></td>
 			<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
 			<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>
@@ -57,6 +60,7 @@
 	<tr>
 		<td><div class = "field">Title</td></div>
 		<td><div class = "field">Category</td></div>
+		<td><div class = "field">Affiliation</td></div>
 		<td><div class = "field">Location</td></div>
 		<td><div class = "field">Start Time</td></div>
 		<td><div class = "field">End Time</td></div>
@@ -67,6 +71,7 @@
 	<tr>
 		<td><div class = "field"><%= event_sortable "Title", "title" %></td></div>
 		<td><div class = "field"><%= event_sortable "Category", "category" %></td></div>
+		<td><div class = "field"><%= event_sortable "Affiliation", "school" %></td></div>
 		<td><div class = "field"><%= event_sortable "Location", "location" %></td></div>
 		<td><div class = "field"><%= event_sortable "Start Time", "dayandtime" %></td></div>
 		<td><div class = "field"><%= event_sortable "End Time", "dayandtimeend" %></td></div>
@@ -80,6 +85,7 @@
 		<tr>
 			<td><%= link_to event.title, event_path(event.id) %></td>
 			<td><%= event.category %></td>
+			<td><%= event.school %></td>
 			<td><%= event.location %></td>
 			<td><%= event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></td>
 			<td><%= event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></td>

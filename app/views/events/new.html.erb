@@ -8,8 +8,25 @@
 	<p></p>
 	<div class = "field">
 		Category:<br />
-		<%= f.select :category, [['Meal','Meal'], ['Drinks/Coffee', 'Drinks/Coffee'], ['Local Event', 'Local Event'], ['Sports', 'Sports'], ['Food Club', 'Food Club'], ['San Francisco Semester', 'San Francisco Semester'], ['Other', 'Other']] %>
+		<%= f.select :category, [['Meal','Meal'], ['Drinks/Coffee', 'Drinks/Coffee'], ['Local Event', 'Local Event'], ['Sports', 'Sports'], ['Other', 'Other']] %>
 	</div>
+	<p></p>
+	<div class = "field">
+		Affiliation:<br />
+	<%= f.select :school, [['Penn-Wide','Penn-Wide'],
+		                ['Annenberg','Annenberg'],
+		                ['Arts & Sciences','Arts & Sciences'],
+		                ['Dental','Dental'],
+		                ['Design','Design'],
+		                ['Education','Education'],
+		                ['Engineering','Engineering'],
+		                ['Law','Law'],
+		                ['Medicine','Medicine'],
+		                ['Nursing','Nursing'],
+		                ['Social Policy','Social Policy'],
+		                ['Veterinary Medicine','Veterinary Medicine'],
+		                ['Wharton','Wharton'],
+		                ['San Francisco', 'San Francisco']] %></div>
 	<p></p>
 	<div class = "field">
 		Location:<br />

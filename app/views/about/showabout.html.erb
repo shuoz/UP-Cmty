@@ -16,4 +16,11 @@
 	<p>3. Anyone can also create a <%= link_to "New Event", new_event_path %>.</p>
 	<p>4. Want to meet others in the retail industry? Find people for a pickup tennis match? Chat about upcoming travel destinations? Just specify your interests in the event title.</p>
 	<p>5. Everyone on the attendance list will receive an email reminder on the day of their event.</p>
+	<p>6. View 
+		<% if current_user %>
+		 	<%= link_to "Your Profile", user_show_path(current_user.id) %>
+		 	<% else %>
+		 	<%= link_to "Your Profile", edit_user_registration_path %>
+		 <% end %>
+	to see the events that you are attending or hosting.</p>
 </td>

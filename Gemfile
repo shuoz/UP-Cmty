@@ -15,6 +15,8 @@ group :production do
 	gem 'pg'
 end
 
+gem 'validates_timeliness', '~> 3.0'
+
 gem 'paperclip', '~> 4.1'
 
 gem 'filepicker-rails'

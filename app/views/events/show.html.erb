@@ -5,6 +5,7 @@
 <div class = "section1">
 	<h2><%= @event.title %></h2>
 	<p><div class = "field"><%= "Category: " %></div><%= @event.category %></p>
+	<p><div class = "field"><%= "Affiliation: " %></div><%= @event.school %></p>
 	<p><div class = "field"><%= "Location: " %></div><%= @event.location %></p>
 	<p><div class = "field"><%= "Start Time: " %></div><%= @event.dayandtime.strftime('%a, %b %d %Y %I:%M%P') %></p>
 	<p><div class = "field"><%= "End Time: " %></div><%= @event.dayandtimeend.strftime('%a, %b %d %Y %I:%M%P') %></p>

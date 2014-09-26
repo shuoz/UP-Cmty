@@ -6,6 +6,10 @@ class Event < ActiveRecord::Base
   validates :title, :location, presence: true
   #validates :title, uniqueness: true
   validates :title, :location, length: {within: 1..30}
+  validates_time :dayandtimeend, :on_or_after => :dayandtime,
+                                 :on_or_after_message => 'Event cannot end before it begins!'
+  validates_date :dayandtimeend, :on_or_after => :dayandtime,
+                                 :on_or_after_message => 'Event cannot end before it begins!'                            
 
   scope :between, lambda {|start_time, end_time|
     {:conditions => ["? < dayandtime < ?", Event.format_date(start_time), Event.format_date(end_time)] }
@@ -20,6 +24,8 @@ class Event < ActiveRecord::Base
       :category => self.category,
       :location => self.location,
       :maxpeople => self.maxpeople,
+      :school => self.school,
+      :attend => self.attend,
       :start => dayandtime,
       :end => dayandtimeend,
       :allDay => false,
