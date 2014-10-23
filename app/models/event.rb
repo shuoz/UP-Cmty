@@ -5,7 +5,8 @@ class Event < ActiveRecord::Base
   has_many :guests, :dependent => :destroy
   validates :title, :location, presence: true
   #validates :title, uniqueness: true
-  validates :title, :location, length: {within: 1..30}
+  validates :title, length: {within: 1..30}
+  validates :location, length: {within: 1..40}
   validates_time :dayandtimeend, :on_or_after => :dayandtime,
                                  :on_or_after_message => 'Event cannot end before it begins!'
   validates_date :dayandtimeend, :on_or_after => :dayandtime,
