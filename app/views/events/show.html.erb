@@ -134,9 +134,9 @@
 		<% @guests.each do |guest| %>
 			<% if guest.created_at < participant.timejoined and guest.listed != 1 %>
 				<% if @@counter < @event.maxpeople %>
-					<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+					<td><%= "Attending: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %></td>
 				<% else %>
-					<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+					<td><%= "On Waitlist: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %></td>
 				<% end %>
 				<% guest.listed = 1 %>
 				<% @@counter += 1 %>
@@ -144,9 +144,9 @@
 			<% end %>
 		<% end %>
 		<% if @@counter < @event.maxpeople %>
-			<td><%= "Attending: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
+			<td><%= "Attending: "%><%= participant.user.school %>&nbsp;<%= participant.user.gender %></td>
 		<% else %>
-			<td><%= "On Waitlist: "%><%= link_to participant.user.firstname, user_show_path(participant.user.id) %>&nbsp;<%= link_to participant.user.lastname, user_show_path(participant.user.id) %></td>
+			<td><%= "On Waitlist: "%><%= participant.user.school %>&nbsp;<%= participant.user.gender %></td>
 		<% end %>
 		<% @@counter += 1 %>
 		<p></p>
@@ -154,11 +154,11 @@
 	<% @guests.each do |guest| %>
 		<% if guest.listed != 1 %>
 			<% if @@counter < @event.maxpeople %>
-				<td><%= "Attending: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+				<td><%= "Attending: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %><%= "'s Guest"%></td>
 				<% @@counter += 1 %>
 				<p></p>
 			<% else %>
-				<td><%= "On Waitlist: "%><%= link_to guest.user.firstname, user_show_path(guest.user.id) %>&nbsp;<%= link_to guest.user.lastname, user_show_path(guest.user.id) %><%= "'s Guest"%></td>
+				<td><%= "On Waitlist: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %><%= "'s Guest"%></td>
 				<% @@counter += 1 %>
 				<p></p>
 			<% end %>
@@ -241,7 +241,7 @@
 	<p></p>
 	<% @comments.each do |comment| %>
 		<tr>
-			<td><%= comment.user.firstname %></td>
+			<td><%= comment.user.school %>&nbsp;<%= comment.user.gender %></td>
 			<td> [<%= comment.updated_at.strftime('%a, %b %d %I:%M%P') %>] </td>
 			<td><%= comment.content %></td>
 			<% if comment.user_id == current_user.id %>
