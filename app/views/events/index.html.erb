@@ -81,7 +81,7 @@
 	<% end %>
 	<% @@eventcounter = 0 %>
 	<% @events.each do |event| %>
-		<% if event.dayandtime.to_date < Time.now.to_date and @@eventcounter < 99999 %>
+		<% if event.dayandtime.to_date < Time.now.to_date and event.dayandtime.to_date.year > 2014 and @@eventcounter < 99999 %>
 		<tr>
 			<td><%= link_to event.title, event_path(event.id) %></td>
 			<td><%= event.category %></td>

@@ -30,7 +30,7 @@ SocialCalendar3::Application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   config.assets.raise_production_errors = true
-  
+
   #Paperclip.options[:command_path] = "/usr/local/bin/"
   
 end
