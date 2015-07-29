@@ -86,7 +86,7 @@ SocialCalendar3::Application.configure do
     :address => 'smtp.sendgrid.net',
     :port => '587',
     :user_name => "app23110105@heroku.com",
-    :password => "zutqyfmt",
+    :password => "pvvfoklw8968",
     :domain => "heroku.com"
   }
 

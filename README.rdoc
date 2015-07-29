@@ -33,6 +33,7 @@ https://github.com/Ink/filepicker-rails
 Addons Used:
 Sendgrid: cloud-based email infrastructure and delivery service
 https://addons.heroku.com/sendgrid
+https://devcenter.heroku.com/articles/sendgrid
 
 
 JavaScript/jQuery:

@@ -8,7 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module SocialCalendar3
   class Application < Rails::Application
-    config.action_mailer.default_url_options = {:host => "penncommunity.herokuapp.com"}
+    config.action_mailer.default_url_options = {:host => "penncommunity.com"}
     config.filepicker_rails.api_key = "ACzBiZZbjRBslWAljmG9gz"
     config.filepicker_rails.secret_key = "755U4J3TXJEW5BNWC4LCDZDYOA"
     config.time_zone = "Eastern Time (US & Canada)"
