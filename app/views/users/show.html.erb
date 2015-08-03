@@ -29,7 +29,7 @@
 	<% end %>
 </div>
 
-<% if false %>
+<% if @user.id == current_user.id %>
 <div class = "section2">
 	<div class = "field">Events <%= @user.firstname %> is hosting: </div>
 	<% @events.each do |event| %>
