@@ -134,9 +134,9 @@
 		<% @guests.each do |guest| %>
 			<% if guest.created_at < participant.timejoined and guest.listed != 1 %>
 				<% if @@counter < @event.maxpeople %>
-					<td><%= "Attending: "%><%= guest.user.email %></td>
+					<td><%= "Attending: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %><%= "'s Guest"%></td>
 				<% else %>
-					<td><%= "On Waitlist: "%><%= guest.user.email %></td>
+					<td><%= "On Waitlist: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %><%= "'s Guest"%></td>
 				<% end %>
 				<% guest.listed = 1 %>
 				<% @@counter += 1 %>
@@ -144,9 +144,9 @@
 			<% end %>
 		<% end %>
 		<% if @@counter < @event.maxpeople %>
-			<td><%= "Attending: "%><%= participant.user.email %></td>
+			<td><%= "Attending: "%><%= participant.user.school %>&nbsp;<%= participant.user.gender %></td>
 		<% else %>
-			<td><%= "On Waitlist: "%><%= participant.user.email %></td>
+			<td><%= "On Waitlist: "%><%= participant.user.school %>&nbsp;<%= participant.user.gender %></td>
 		<% end %>
 		<% @@counter += 1 %>
 		<p></p>
@@ -154,11 +154,11 @@
 	<% @guests.each do |guest| %>
 		<% if guest.listed != 1 %>
 			<% if @@counter < @event.maxpeople %>
-				<td><%= "Attending: "%><%= guest.user.email %></td>
+				<td><%= "Attending: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %><%= "'s Guest"%></td>
 				<% @@counter += 1 %>
 				<p></p>
 			<% else %>
-				<td><%= "On Waitlist: "%><%= guest.user.email %></td>
+				<td><%= "On Waitlist: "%><%= guest.user.school %>&nbsp;<%= guest.user.gender %><%= "'s Guest"%></td>
 				<% @@counter += 1 %>
 				<p></p>
 			<% end %>
